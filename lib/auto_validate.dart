@@ -1,5 +1,13 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'auto_validate.freezed.dart';
+
 /// Created By Mahmoud El Shenawy (Dev.Mahmoud.ElShenawy@Gmail.com)
-class AutoValidate {
+
+@freezed
+abstract class AutoValidate with _$AutoValidate {
+  const factory AutoValidate(String input) = Input;
+
   // User Validate :-
 
   /// It Contains Alphanumeric, underscores and hyphens and its long between 3 to 16 characters.
@@ -21,6 +29,10 @@ class AutoValidate {
   static RegExp phoneNumberValidate =
       RegExp(r'(^((?:[+?0?0?966]+)(?:\s?\d{2})(?:\s?\d{7}))$)');
 
+  /// It Contains International Phone Number Format Correctly.
+  static RegExp internationalPhoneNumberValidate = RegExp(
+      r'\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$');
+
   // -----------------------------------------------------------------------------------------------------------------------------
 
   // Identity Validate :-
@@ -30,11 +42,7 @@ class AutoValidate {
       r'^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6011[0-9]{12}|622((12[6-9]|1[3-9][0-9])|([2-8][0-9][0-9])|(9(([0-1][0-9])|(2[0-5]))))[0-9]{10}|64[4-9][0-9]{13}|65[0-9]{14}|3(?:0[0-5]|[68][0-9])[0-9]{11}|3[47][0-9]{13})*$');
 
   /// It Contains SNN (Social Security Number) Format Correctly.
-  static RegExp ssn = RegExp(r'^([0-9]{3}[-]*[0-9]{2}[-]*[0-9]{4})*$');
-
-  /// It Contains International Phone Number Format Correctly.
-  static RegExp internationalPhoneNumberValidate = RegExp(
-      r'\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$');
+  static RegExp ssnValidate = RegExp(r'^([0-9]{3}[-]*[0-9]{2}[-]*[0-9]{4})*$');
 
   /// It Contains Passport Format Correctly.
   static RegExp passportValidate = RegExp(r'^(?!^0+$)[a-zA-Z0-9]{3,20}$');
