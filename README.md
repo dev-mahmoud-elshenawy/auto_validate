@@ -2,15 +2,58 @@
 
 Auto Validate Package
 
-## Getting Started
+## Importance
 
-This project is a starting point for a Flutter application.
+This package will help you to auto validate used regular expressions. No need to write the code by yourself, simply you can use this package for not waste time and it will help you a lot.
 
-A few resources to get you started if this is your first Flutter project:
+## Usage
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+A simple usage example:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```dart
+import 'package:auto_validate/auto_validate.dart';
+
+void validation() {
+  var userEmail = 'Mahmoud@Elshenawy.com';
+
+  if (isEmailValid(success.toString()) {
+    print('Email is Valid');
+  } else {
+    print('Email is Invalid');
+  }
+}
+
+```
+
+### More Details
+
+- Make Validation on all next elements
+
+  - Arabic Input
+  - Email
+  - Password
+  - Strong Password
+  - Phone Number
+  - International Phone Number
+  - Credit Card 
+  - SNN (Social Security Number)
+  - Passport
+  - Date (MMDDYYYY)
+  - Date (YYYYMMDD)
+  - IPV4 (Internet Protocol Version 4)
+  - IPV6 (Internet Protocol Version 6)
+  - Alphanumeric
+  - Alphanumeric With Spaces
+  - Alphabet
+  - LowerCase
+  - UpperCase
+  - Digits
+  - Decimals
+  - Signed Decimals
+  - URL
+
+## Created By
+
+- **Mahmoud El Shenawy** - [Mahmoud-ElShenawy](https://github.com/Mahmoud-ElShenawy/auto_validate)
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/Mahmoud-ElShenawy/auto_validate/blob/master/LICENSE) file for details
