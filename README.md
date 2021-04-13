@@ -16,7 +16,7 @@ import 'package:auto_validate/auto_validate.dart';
 void validation() {
   var userEmail = 'Dev.Mahmoud.ElShenawy@gmail.com';
 
-  if (isEmailValid(success.toString()) {
+  if (isEmailValid(userEmail.toString()) {
     print('Email is Valid');
   } else {
     print('Email is Invalid');
