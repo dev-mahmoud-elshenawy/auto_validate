@@ -1,6 +1,6 @@
-# auto_validate
+# Auto Validate
 
-Auto Validate Package
+Auto Validate Package is unique and easy to use.
 
 ## Importance
 
@@ -14,7 +14,7 @@ A simple usage example:
 import 'package:auto_validate/auto_validate.dart';
 
 void validation() {
-  var userEmail = 'Mahmoud@Elshenawy.com';
+  var userEmail = 'Dev.Mahmoud.ElShenawy@gmail.com';
 
   if (isEmailValid(success.toString()) {
     print('Email is Valid');
