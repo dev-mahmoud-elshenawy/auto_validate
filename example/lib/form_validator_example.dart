@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 
 /// Created By Mahmoud El Shenawy (Dev.Mahmoud.ElShenawy@Gmail.com)
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(AutoValidateApp());
 
-class MyApp extends StatelessWidget {
+class AutoValidateApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,16 +19,15 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("Auto Validate"),
         ),
-        body: AppHome(),
+        body: AutoValidateHome(),
       ),
     );
   }
 }
 
-class AppHome extends StatelessWidget {
+class AutoValidateHome extends StatelessWidget {
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController passwordStrongController =
-      TextEditingController();
+  final TextEditingController passwordStrongController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
 

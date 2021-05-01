@@ -13,7 +13,7 @@ import '../lib/form_validator_example.dart';
 void main() {
   testWidgets('Verify Platform version', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(AutoValidateApp());
 
     // Verify that platform version is retrieved.
     expect(
