@@ -61,12 +61,12 @@ import 'package:auto_validate/auto_validate.dart';
                 validator: FormValidator.email(
                   errorMessage: 'Please Enter Valid Email',
                    ),
-                );
+  );
 ```
 
 ### More Details
 
-- Make validation on all next elements
+- Make validation on all next elements with Auto Validate
 
   - Arabic Input
   - UserName (It Contains Alphanumeric, underscores and hyphens and its long between 3 to 16 characters)
@@ -116,6 +116,33 @@ import 'package:auto_validate/auto_validate.dart';
   - Match
   - MinLength
   - MaxLength
+  
+## Note
+
+- Auto Validate is used to check any value you want
+- Form Validator is the same previous functionality but with error message that uses in TextFormField validator attribute
+- You can use more than one Form validator like next example:-
+```dart
+import 'package:auto_validate/auto_validate.dart';
+
+  TextFormField(
+                controller: emailController,
+                decoration: InputDecoration(
+                hintText: "Email",
+                border: OutlineInputBorder(
+                borderSide: BorderSide(),
+                  ),
+                ),
+                validator: FormValidator.combination(
+                 validators: [
+                 FormValidator.maxLength(maxLength: 15, errorMessage: 'Password Enter Valid Password With Max Length 15'),
+                 FormValidator.minLength(minLength: 5, errorMessage: 'Password Enter Valid Password At Least Min Length 5'),
+                 FormValidator.passwordStrong(errorMessage: 'Please Enter Valid Strong Password')
+                 ])
+  );
+```
+
+
 
 ## Created By
 
