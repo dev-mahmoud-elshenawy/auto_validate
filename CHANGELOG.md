@@ -1,3 +1,7 @@
+## 1.0.4
+
+- No Big Changes Happened
+
 ## 1.0.3
 
 - Edit Documentation
