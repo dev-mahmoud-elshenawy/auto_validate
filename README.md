@@ -93,11 +93,11 @@ import 'package:auto_validate/auto_validate.dart';
   - Base58
   - Base32
   - ASCII (American Standard Code for Information Interchange)
-  - ByteLength (Check String's Length (In Bytes) In A Range)
+  - ByteLength ("Check String's Length (In Bytes) In A Range")
   - JWT (Json Web Token)
   - ISIN (International Securities Identification Number)
-  - ISBN (International Standard Book Number - 'You Have To Choose One Of Its Versions 10 or 13') 
-  - MAC Address (Media Access Control - 'You Have To Choose With Colons Or Not')
+  - ISBN (International Standard Book Number - "You Have To Choose One Of Its Versions 10 or 13") 
+  - MAC Address (Media Access Control - "You Have To Choose With Colons Or Not")
   - BIC (Bank Identifier Code)
   - MD5 Hash (Message-Digest Algorithm)
   - Capitalized
