@@ -24,7 +24,6 @@ dev_dependencies:
   test:
   freezed:
   build_runner:
-  lint: 1.3.0
 
 
 
