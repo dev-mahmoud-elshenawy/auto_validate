@@ -1,6 +1,10 @@
+## 1.0.3
+
+- Edit Documentation
+
 ## 1.0.2
 
-- Add More Validators
+- Add More Auto Validators
 - Add Form Validators
 
 ## 1.0.1

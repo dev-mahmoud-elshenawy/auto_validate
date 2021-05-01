@@ -20,6 +20,7 @@ A simple usage of Auto Validate example:
 
 ```dart
 import 'package:auto_validate/auto_validate.dart';
+
   validation() {
     var email = 'Dev.Mahmoud.ElShenawy@gmail.com';
     var name = 'Mahmud El Shenawy';
@@ -48,18 +49,19 @@ A simple usage of Form Validator Example:
 
 ```dart
 import 'package:auto_validate/auto_validate.dart';
+
   TextFormField(
-            controller: emailController,
-            decoration: InputDecoration(
-            hintText: "Email",
-            border: OutlineInputBorder(
-            borderSide: BorderSide(),
-              ),
-            ),
-            validator: FormValidator.email(
-              errorMessage: 'Please Enter Valid Email',
-               ),
-            );
+                controller: emailController,
+                decoration: InputDecoration(
+                hintText: "Email",
+                border: OutlineInputBorder(
+                borderSide: BorderSide(),
+                  ),
+                ),
+                validator: FormValidator.email(
+                  errorMessage: 'Please Enter Valid Email',
+                   ),
+                );
 ```
 
 ### More Details

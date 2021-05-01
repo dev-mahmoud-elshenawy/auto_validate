@@ -1,6 +1,6 @@
 name: auto_validate
 description: Auto Validate Package. This package will help you to auto validate used regular expressions. No need to write the code by yourself, simply you can use this package for not waste time and it will help you a lot.
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/Mahmoud-ElShenawy/auto_validate
 repository: https://github.com/Mahmoud-ElShenawy/auto_validate
 issue_tracker: https://github.com/Mahmoud-ElShenawy/auto_validate/issues
@@ -24,5 +24,7 @@ dev_dependencies:
   test:
   freezed:
   build_runner:
+  lint: 1.3.0
+
 
 
