@@ -1,3 +1,8 @@
+## 1.0.2
+
+- Add More Validators
+- Add Form Validators
+
 ## 1.0.1
 
 - No Big Changes Happened

@@ -1,12 +1,12 @@
-part of 'auto_validate.dart';
-
-/// Created By Mahmoud El Shenawy (Dev.Mahmoud.ElShenawy@Gmail.com)
+part of 'auto_validators.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$AutoValidateTearOff {
   const _$AutoValidateTearOff();
 
+// ignore: unused_element
   Input call(String input) {
     return Input(
       input,
@@ -14,29 +14,35 @@ class _$AutoValidateTearOff {
   }
 }
 
+/// @nodoc
+// ignore: unused_element
 const $AutoValidate = _$AutoValidateTearOff();
 
+/// @nodoc
 mixin _$AutoValidate {
   String get input;
 
   @JsonKey(ignore: true)
-  $AutoValidateCopyWith<AutoValidate> get copyWith;
+  $AutoValidateCopyWith<AutoValidators> get copyWith;
 }
 
+/// @nodoc
 abstract class $AutoValidateCopyWith<$Res> {
   factory $AutoValidateCopyWith(
-          AutoValidate value, $Res Function(AutoValidate) then) =
+          AutoValidators value, $Res Function(AutoValidators) then) =
       _$AutoValidateCopyWithImpl<$Res>;
 
   $Res call({String input});
 }
 
+/// @nodoc
 class _$AutoValidateCopyWithImpl<$Res> implements $AutoValidateCopyWith<$Res> {
   _$AutoValidateCopyWithImpl(this._value, this._then);
 
-  final AutoValidate _value;
+  final AutoValidators _value;
 
-  final $Res Function(AutoValidate) _then;
+  // ignore: unused_field
+  final $Res Function(AutoValidators) _then;
 
   @override
   $Res call({
@@ -48,6 +54,7 @@ class _$AutoValidateCopyWithImpl<$Res> implements $AutoValidateCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class $InputCopyWith<$Res> implements $AutoValidateCopyWith<$Res> {
   factory $InputCopyWith(Input value, $Res Function(Input) then) =
       _$InputCopyWithImpl<$Res>;
@@ -56,6 +63,7 @@ abstract class $InputCopyWith<$Res> implements $AutoValidateCopyWith<$Res> {
   $Res call({String input});
 }
 
+/// @nodoc
 class _$InputCopyWithImpl<$Res> extends _$AutoValidateCopyWithImpl<$Res>
     implements $InputCopyWith<$Res> {
   _$InputCopyWithImpl(Input _value, $Res Function(Input) _then)
@@ -74,6 +82,7 @@ class _$InputCopyWithImpl<$Res> extends _$AutoValidateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$Input implements Input {
   const _$Input(this.input) : assert(input != null);
 
@@ -103,7 +112,7 @@ class _$Input implements Input {
       _$InputCopyWithImpl<Input>(this, _$identity);
 }
 
-abstract class Input implements AutoValidate {
+abstract class Input implements AutoValidators {
   const factory Input(String input) = _$Input;
 
   @override
