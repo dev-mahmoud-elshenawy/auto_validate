@@ -6,9 +6,9 @@ Auto Validate Package is unique and easy to use.
 
 [![Pub Package](https://img.shields.io/badge/Pub%20get-Auto%20Validate-yellow)](https://pub.dev/packages/auto_validate)
 ![Build Status](https://img.shields.io/badge/Build-Passing-teal)
-![Unit Test](https://img.shields.io/badge/Unit%20Test-passing-red)
+![Unit Test](https://img.shields.io/badge/Unit%20Test-Passing-red)
 [![creator](https://img.shields.io/badge/Creator-Mahmoud%20El%20Shenawy-blue)](https://www.linkedin.com/in/dev-mahmoud-elshenawy/)
-<a href="https://www.buymeacoffee.com/m.elshenawy" target="_blank"><img src="https://i.imgur.com/aV6DDA7.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important; box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" > </a>
+<a href="https://www.buymeacoffee.com/m.elshenawy" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important; box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" > </a>
 
 ## Importance
 
@@ -66,7 +66,7 @@ import 'package:auto_validate/auto_validate.dart';
 
 ### More Details
 
-- Make validation on all next elements with Auto Validate
+- Make validation on all next elements with AutoValidate
 
   - Arabic Input
   - UserName (It Contains Alphanumeric, underscores and hyphens and its long between 3 to 16 characters)
@@ -114,6 +114,50 @@ import 'package:auto_validate/auto_validate.dart';
   - Non-Null 
   - SameType
   - Match
+  - MinLength
+  - MaxLength
+  
+- Make form validation on all next elements with FormValidator
+
+  - Required (Non-Null Required Field - "For Empty TextFormField")
+  - combination (Combination From More Than One Form Validator)
+  - Arabic Input
+  - UserName (It Contains Alphanumeric, underscores and hyphens and its long between 3 to 16 characters)
+  - Password (It Contains at least 1 lowerCase letter, upperCase letter, number and 8 characters long)
+  - Strong Password (It Contains at least 1 lowerCase letter, upperCase letter, number, special character and 8 characters long
+  - Email
+  - Phone Number
+  - International Phone Number
+  - Credit Card 
+  - SNN (Social Security Number)
+  - Passport
+  - Date (MM/DD/YYYY)
+  - Date (YYYY/MM/DD)
+  - IPV4 (Internet Protocol Version 4)
+  - IPV6 (Internet Protocol Version 6)
+  - Alphanumeric
+  - Alphanumeric With Spaces
+  - Alphabet
+  - LowerCase
+  - UpperCase
+  - Digits
+  - Decimals
+  - Signed Decimals
+  - URL
+  - Base64
+  - Base58
+  - Base32
+  - ASCII (American Standard Code for Information Interchange)
+  - JWT (Json Web Token)
+  - ISIN (International Securities Identification Number)
+  - MAC Address (Media Access Control - "Without Colons")
+  - BIC (Bank Identifier Code)
+  - MD5 Hash (Message-Digest Algorithm)
+  - Capitalized
+  - Latitude and Longitude
+  - Magnet URI
+  - Mongo ID
+  - Multibyte Character Sets
   - MinLength
   - MaxLength
   

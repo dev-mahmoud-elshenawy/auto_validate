@@ -1,3 +1,7 @@
+## 1.0.6
+
+- Add More FormValidators
+
 ## 1.0.5
 
 - Edit Documentation

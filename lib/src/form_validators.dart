@@ -1,6 +1,7 @@
+import 'package:auto_validate/auto_validate.dart';
 import 'package:flutter/widgets.dart' show FormFieldValidator;
 
-import 'auto_validators.dart';
+/// Created By Mahmoud El Shenawy (Dev.Mahmoud.ElShenawy@Gmail.com)
 
 class FormValidator {
   ///Non-Null Required Field Validator
@@ -57,7 +58,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidators.emailValidate.hasMatch(value))
+        if (AutoValidate.email(value))
           return null;
         else
           return errorMessage;
@@ -74,7 +75,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidators.passwordValidate.hasMatch(value))
+        if (AutoValidate.password(value))
           return null;
         else
           return errorMessage;
@@ -91,7 +92,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidators.passwordStrongValidate.hasMatch(value))
+        if (AutoValidate.passwordStrong(value))
           return null;
         else
           return errorMessage;
@@ -108,7 +109,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidators.phoneNumberValidate.hasMatch(value))
+        if (AutoValidate.phone(value))
           return null;
         else
           return errorMessage;
@@ -125,7 +126,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidators.internationalPhoneNumberValidate.hasMatch(value))
+        if (AutoValidate.phoneInternational(value))
           return null;
         else
           return errorMessage;
@@ -142,7 +143,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidators.userNameValidate.hasMatch(value))
+        if (AutoValidate.userName(value))
           return null;
         else
           return errorMessage;
@@ -159,7 +160,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidators.passportValidate.hasMatch(value))
+        if (AutoValidate.passport(value))
           return null;
         else
           return errorMessage;
@@ -176,7 +177,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidators.dateYYYYMMDDValidate.hasMatch(value))
+        if (AutoValidate.dateYYYYMMDD(value))
           return null;
         else
           return errorMessage;
@@ -193,7 +194,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidators.dateMMDDYYYYValidate.hasMatch(value))
+        if (AutoValidate.dateMMDDYYYY(value))
           return null;
         else
           return errorMessage;
@@ -210,7 +211,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidators.alphanumericValidate.hasMatch(value))
+        if (AutoValidate.alphanumeric(value))
           return null;
         else
           return errorMessage;
@@ -228,7 +229,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidators.alphanumericWithSpacesValidate.hasMatch(value))
+        if (AutoValidate.alphanumericWithSpaces(value))
           return null;
         else
           return errorMessage;
@@ -245,7 +246,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidators.alphabetValidate.hasMatch(value))
+        if (AutoValidate.alphabet(value))
           return null;
         else
           return errorMessage;
@@ -262,7 +263,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidators.urlValidate.hasMatch(value))
+        if (AutoValidate.url(value))
           return null;
         else
           return errorMessage;
@@ -279,7 +280,398 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidators.inputArabicValidate.hasMatch(value))
+        if (AutoValidate.inputArabic(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  /// Credit Card Validator
+  static FormFieldValidator<String> creditCard({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.creditCard(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  /// SSN Validator
+  static FormFieldValidator<String> ssn({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.ssn(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  /// IPV4 Validator
+  static FormFieldValidator<String> ipv4({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.ipv4(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  /// IPV6 Validator
+  static FormFieldValidator<String> ipv6({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.ipv6(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  /// LowerCase Validator
+  static FormFieldValidator<String> lowerCase({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.lowerCase(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  /// UpperCase Validator
+  static FormFieldValidator<String> upperCase({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.upperCase(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  /// Digits Validator
+  static FormFieldValidator<String> digits({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.digits(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  /// Decimals Validator
+  static FormFieldValidator<String> decimals({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.decimals(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  /// Signed Decimals Validator
+  static FormFieldValidator<String> decimalsSigned({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.decimalsSigned(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  /// Base64 Validator
+  static FormFieldValidator<String> base64({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.base64(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  /// Base32 Validator
+  static FormFieldValidator<String> base32({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.base32(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  /// Base58 Validator
+  static FormFieldValidator<String> base58({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.base58(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  /// ASCII Validator
+  static FormFieldValidator<String> ascii({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.ascii(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  /// Capitalized Validator
+  static FormFieldValidator<String> capitalized({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.capitalized(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  /// JWT Validator
+  static FormFieldValidator<String> jwt({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.jwt(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  /// ISIN Validator
+  static FormFieldValidator<String> isin({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.isin(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  /// Mac Address Validator (Without Colons)
+  static FormFieldValidator<String> macAddress({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.macAddress(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  /// Latitude and Longitude Validator
+  static FormFieldValidator<String> latLng({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.latLng(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  ///  MD5 Hash Validator
+  static FormFieldValidator<String> md5({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.md5(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  ///  Magnet URI Validator
+  static FormFieldValidator<String> magnetURI({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.magnetURI(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  ///  Mongo ID Validator
+  static FormFieldValidator<String> mongoID({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.mongoID(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  ///  Multibyte Validator
+  static FormFieldValidator<String> multibyte({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.multibyte(value))
+          return null;
+        else
+          return errorMessage;
+      }
+    };
+  }
+
+  ///  BIC Validator
+  static FormFieldValidator<String> bic({String errorMessage}) {
+    return (value) {
+      if (value == null) {
+        value = '';
+      }
+      if (value.isEmpty)
+        return null;
+      else {
+        if (AutoValidate.bic(value))
           return null;
         else
           return errorMessage;

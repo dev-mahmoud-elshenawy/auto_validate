@@ -76,11 +76,11 @@ abstract class AutoValidators with _$AutoValidate {
   // Internet Validate :-
 
   /// It Contains IpV4 (Internet Protocol Version 4) Format Correctly.
-  static RegExp ipV4Validate = RegExp(
+  static RegExp ipv4Validate = RegExp(
       r'^((?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))*$');
 
   /// It Contains IpV6 (Internet Protocol Version 6) Format Correctly.
-  static RegExp ipV6Validate = RegExp(
+  static RegExp ipv6Validate = RegExp(
       r'(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))');
 
   /// /// It Contains URL Format Correctly.
@@ -138,7 +138,7 @@ abstract class AutoValidators with _$AutoValidate {
   static RegExp decimalsValidate = RegExp(r'^\d*(\.\d+)?$');
 
   /// It Contains Signed Decimals Format Correctly.
-  static RegExp signedDecimalsValidate = RegExp(r'^[-+]?\d*(\.\d+)?$');
+  static RegExp decimalsSignedValidate = RegExp(r'^[-+]?\d*(\.\d+)?$');
 
   /// It Contains Input Arabic Format Correctly.
   static RegExp inputArabicValidate =

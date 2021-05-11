@@ -65,12 +65,12 @@ class AutoValidate {
 
   /// IPV4 Validator
   static bool ipv4(String input) {
-    return AutoValidators.ipV4Validate.hasMatch(input);
+    return AutoValidators.ipv4Validate.hasMatch(input);
   }
 
   /// IPV6 Validator
   static bool ipv6(String input) {
-    return AutoValidators.ipV6Validate.hasMatch(input);
+    return AutoValidators.ipv6Validate.hasMatch(input);
   }
 
   /// Alphanumeric Validator
@@ -110,7 +110,7 @@ class AutoValidate {
 
   /// Signed Decimals Validator
   static bool decimalsSigned(String input) {
-    return AutoValidators.signedDecimalsValidate.hasMatch(input);
+    return AutoValidators.decimalsSignedValidate.hasMatch(input);
   }
 
   /// URL Validator

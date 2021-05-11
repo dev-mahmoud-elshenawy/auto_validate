@@ -1,5 +1,7 @@
 part of 'auto_validators.dart';
 
+/// Created By Mahmoud El Shenawy (Dev.Mahmoud.ElShenawy@Gmail.com)
+
 T _$identity<T>(T value) => value;
 
 /// @nodoc
