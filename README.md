@@ -172,7 +172,7 @@ import 'package:auto_validate/auto_validate.dart';
   TextFormField(
                 controller: emailController,
                 decoration: InputDecoration(
-                hintText: "Email",
+                hintText: "Password",
                 border: OutlineInputBorder(
                 borderSide: BorderSide(),
                   ),
