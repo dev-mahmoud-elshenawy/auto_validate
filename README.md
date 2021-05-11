@@ -8,7 +8,7 @@ Auto Validate Package is unique and easy to use.
 ![Build Status](https://img.shields.io/badge/Build-Passing-teal)
 ![Unit Test](https://img.shields.io/badge/Unit%20Test-Passing-red)
 [![creator](https://img.shields.io/badge/Creator-Mahmoud%20El%20Shenawy-blue)](https://www.linkedin.com/in/dev-mahmoud-elshenawy/)
-<a href="https://www.buymeacoffee.com/m.elshenawy" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174" > </a>
+<a href="https://www.buymeacoffee.com/m.elshenawy" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="160" > </a>
 
 ## Importance
 
