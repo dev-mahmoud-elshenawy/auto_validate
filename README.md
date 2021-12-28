@@ -1,5 +1,3 @@
-![](Creator_Info.jpg)
-
 # Auto Validate
 
 Auto Validate Package is unique and easy to use.
@@ -8,7 +6,7 @@ Auto Validate Package is unique and easy to use.
 ![Build Status](https://img.shields.io/badge/Build-Passing-teal)
 ![Unit Test](https://img.shields.io/badge/Unit%20Test-Passing-red)
 [![creator](https://img.shields.io/badge/Creator-Mahmoud%20El%20Shenawy-blue)](https://www.linkedin.com/in/dev-mahmoud-elshenawy/)
-<a href="https://www.buymeacoffee.com/m.elshenawy" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174" > </a>
+<a href="https://www.buymeacoffee.com/m.elshenawy" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="30" width="174" > </a>
 
 ## Importance
 
@@ -23,7 +21,7 @@ import 'package:auto_validate/auto_validate.dart';
 
   validation() {
     var email = 'Dev.Mahmoud.ElShenawy@gmail.com';
-    var name = 'Mahmud El Shenawy';
+    var name = 'Mahmoud El Shenawy';
     var password = '@MahmoudElShenawy2021';
     var phone = '+201098415860';
 
@@ -190,6 +188,6 @@ import 'package:auto_validate/auto_validate.dart';
 
 ## Created By
 
-- **Mahmoud El Shenawy** - [Mahmoud-ElShenawy](https://github.com/Mahmoud-ElShenawy/auto_validate)
+- **Mahmoud El Shenawy** - [Mahmoud-ElShenawy](https://www.linkedin.com/in/dev-mahmoud-elshenawy)
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/Mahmoud-ElShenawy/auto_validate/blob/master/LICENSE) file for details

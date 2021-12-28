@@ -1,127 +1,129 @@
+// import 'auto_validators.dart';
+
 import 'auto_validators.dart';
 
 /// Created By Mahmoud El Shenawy (Dev.Mahmoud.ElShenawy@Gmail.com)
 
 class AutoValidate {
   /// User Name Validator
-  static bool userName(String input) {
-    return AutoValidators.userNameValidate.hasMatch(input);
+  static bool? userName(String? input) {
+    return AutoValidators.userNameValidate!.hasMatch(input!);
   }
 
   /// Password Validator
-  static bool password(String input) {
-    return AutoValidators.passwordValidate.hasMatch(input);
+  static bool? password(String? input) {
+    return AutoValidators.passwordValidate!.hasMatch(input!);
   }
 
   /// Strong Password Validator
-  static bool passwordStrong(String input) {
-    return AutoValidators.passwordStrongValidate.hasMatch(input);
+  static bool? passwordStrong(String? input) {
+    return AutoValidators.passwordStrongValidate!.hasMatch(input!);
   }
 
   /// Email Validator
-  static bool email(String input) {
-    return AutoValidators.emailValidate.hasMatch(input);
+  static bool? email(String? input) {
+    return AutoValidators.emailValidate!.hasMatch(input!);
   }
 
   /// PhoneNumber Validator
-  static bool phone(String input) {
-    return AutoValidators.phoneNumberValidate.hasMatch(input);
+  static bool? phone(String? input) {
+    return AutoValidators.phoneNumberValidate!.hasMatch(input!);
   }
 
   /// Arabic Input Validator
-  static bool inputArabic(String input) {
-    return AutoValidators.inputArabicValidate.hasMatch(input);
+  static bool? inputArabic(String? input) {
+    return AutoValidators.inputArabicValidate!.hasMatch(input!);
   }
 
   /// Credit Card Validator
-  static bool creditCard(String input) {
-    return AutoValidators.creditCardValidate.hasMatch(input);
+  static bool? creditCard(String? input) {
+    return AutoValidators.creditCardValidate!.hasMatch(input!);
   }
 
   /// SSN Validator
-  static bool ssn(String input) {
-    return AutoValidators.ssnValidate.hasMatch(input);
+  static bool? ssn(String? input) {
+    return AutoValidators.ssnValidate!.hasMatch(input!);
   }
 
   /// International Phone Number Validator
-  static bool phoneInternational(String input) {
-    return AutoValidators.internationalPhoneNumberValidate.hasMatch(input);
+  static bool? phoneInternational(String? input) {
+    return AutoValidators.internationalPhoneNumberValidate!.hasMatch(input!);
   }
 
   /// Passport Validator
-  static bool passport(String input) {
-    return AutoValidators.passportValidate.hasMatch(input);
+  static bool? passport(String? input) {
+    return AutoValidators.passportValidate!.hasMatch(input!);
   }
 
   /// Date (MMDDYYYY) Validator
-  static bool dateMMDDYYYY(String input) {
-    return AutoValidators.dateMMDDYYYYValidate.hasMatch(input);
+  static bool? dateMMDDYYYY(String? input) {
+    return AutoValidators.dateMMDDYYYYValidate!.hasMatch(input!);
   }
 
   /// Date (YYYYMMDD) Validator
-  static bool dateYYYYMMDD(String input) {
-    return AutoValidators.dateYYYYMMDDValidate.hasMatch(input);
+  static bool? dateYYYYMMDD(String? input) {
+    return AutoValidators.dateYYYYMMDDValidate!.hasMatch(input!);
   }
 
   /// IPV4 Validator
-  static bool ipv4(String input) {
-    return AutoValidators.ipv4Validate.hasMatch(input);
+  static bool? ipv4(String? input) {
+    return AutoValidators.ipv4Validate!.hasMatch(input!);
   }
 
   /// IPV6 Validator
-  static bool ipv6(String input) {
-    return AutoValidators.ipv6Validate.hasMatch(input);
+  static bool? ipv6(String? input) {
+    return AutoValidators.ipv6Validate!.hasMatch(input!);
   }
 
   /// Alphanumeric Validator
-  static bool alphanumeric(String input) {
-    return AutoValidators.alphanumericValidate.hasMatch(input);
+  static bool? alphanumeric(String? input) {
+    return AutoValidators.alphanumericValidate!.hasMatch(input!);
   }
 
   /// Alphanumeric With Spaces Validator
-  static bool alphanumericWithSpaces(String input) {
-    return AutoValidators.alphanumericWithSpacesValidate.hasMatch(input);
+  static bool? alphanumericWithSpaces(String? input) {
+    return AutoValidators.alphanumericWithSpacesValidate!.hasMatch(input!);
   }
 
   /// Alphabet Validator
-  static bool alphabet(String input) {
-    return AutoValidators.alphabetValidate.hasMatch(input);
+  static bool? alphabet(String? input) {
+    return AutoValidators.alphabetValidate!.hasMatch(input!);
   }
 
   /// LowerCase Validator
-  static bool lowerCase(String input) {
-    return AutoValidators.lowerCaseValidate.hasMatch(input);
+  static bool? lowerCase(String? input) {
+    return AutoValidators.lowerCaseValidate!.hasMatch(input!);
   }
 
   /// UpperCase Validator
-  static bool upperCase(String input) {
-    return AutoValidators.upperCaseValidate.hasMatch(input);
+  static bool? upperCase(String? input) {
+    return AutoValidators.upperCaseValidate!.hasMatch(input!);
   }
 
   /// Digits Validator
-  static bool digits(String input) {
-    return AutoValidators.digitsValidate.hasMatch(input);
+  static bool? digits(String? input) {
+    return AutoValidators.digitsValidate!.hasMatch(input!);
   }
 
   /// Decimals Validator
-  static bool decimals(String input) {
-    return AutoValidators.decimalsValidate.hasMatch(input);
+  static bool? decimals(String? input) {
+    return AutoValidators.decimalsValidate!.hasMatch(input!);
   }
 
   /// Signed Decimals Validator
-  static bool decimalsSigned(String input) {
-    return AutoValidators.decimalsSignedValidate.hasMatch(input);
+  static bool? decimalsSigned(String? input) {
+    return AutoValidators.decimalsSignedValidate!.hasMatch(input!);
   }
 
   /// URL Validator
-  static bool url(String input) {
-    return AutoValidators.urlValidate.hasMatch(input);
+  static bool? url(String? input) {
+    return AutoValidators.urlValidate!.hasMatch(input!);
   }
 
   /// Base64 Validator
-  static bool base64(String input) {
-    if (input != null && input.length % 4 != 0 ||
-        AutoValidators.base64Validate.hasMatch(input)) {
+  static bool? base64(String? input) {
+    if (input!.length % 4 != 0 ||
+        AutoValidators.base64Validate!.hasMatch(input)) {
       return false;
     }
     var firstPaddingChar = input.indexOf("=");
@@ -132,10 +134,10 @@ class AutoValidate {
   }
 
   /// Base32 Validator
-  static bool base32(String input) {
-    if (input.toString().length > 0 &&
+  static bool? base32(String? input) {
+    if (input!.toString().length > 0 &&
         input.toString().length % 8 == 0 &&
-        AutoValidators.base32Validate.hasMatch(input)) {
+        AutoValidators.base32Validate!.hasMatch(input)) {
       return true;
     } else {
       return false;
@@ -143,41 +145,41 @@ class AutoValidate {
   }
 
   /// Base58 Validator
-  static bool base58(String input) {
-    return AutoValidators.base58Validate.hasMatch(input);
+  static bool? base58(String? input) {
+    return AutoValidators.base58Validate!.hasMatch(input!);
   }
 
   /// ASCII Validator
-  static bool ascii(String input) {
-    return AutoValidators.asciiValidate.hasMatch(input);
+  static bool? ascii(String? input) {
+    return AutoValidators.asciiValidate!.hasMatch(input!);
   }
 
-  /// Byte Length Validator That Check String's Length (In Bytes) In A Range.
-  static bool byteLength(String string, {min = 0, max}) {
-    var len = Uri.encodeFull(string).split(r'/%..|./').length - 1;
+  /// Byte Length Validator That Check String?'s Length (In Bytes) In A Range.
+  static bool? byteLength(String? string, {min = 0, max}) {
+    var len = Uri.encodeFull(string!).split(r'/%..|./').length - 1;
     return len >= min && (max == null || len <= max);
   }
 
   /// Capitalized Validator
-  static bool capitalized(String input) {
-    var capitalizedFirst = input.toString()[0].toUpperCase();
+  static bool? capitalized(String? input) {
+    var capitalizedFirst = input!.toString()[0].toUpperCase();
     var capitalized = "$capitalizedFirst${input.toString().substring(1)}";
     return input == capitalized;
   }
 
   /// Emoji Validator
-  static bool emoji(String input) {
-    return AutoValidators.emojiValidate.hasMatch(input);
+  static bool? emoji(String? input) {
+    return AutoValidators.emojiValidate!.hasMatch(input!);
   }
 
   /// JWT Validator
-  static bool jwt(String input) {
-    return AutoValidators.jwtValidate.hasMatch(input);
+  static bool? jwt(String? input) {
+    return AutoValidators.jwtValidate!.hasMatch(input!);
   }
 
   /// ISIN Validator
-  static bool isin(String input) {
-    if (!AutoValidators.isinValidate.hasMatch(input)) {
+  static bool? isin(String? input) {
+    if (!AutoValidators.isinValidate!.hasMatch(input!)) {
       return false;
     }
     var checksumStr = input.replaceAll(
@@ -186,8 +188,8 @@ class AutoValidate {
             .map((chars) => int.parse(String.fromCharCode(chars)))
             .toString());
 
-    var sum = 0;
-    var digit, tmpNum, shouldDouble = true;
+    dynamic sum = 0;
+    dynamic digit, tmpNum, shouldDouble = true;
     for (var i = checksumStr.length - 2; i >= 0; i--) {
       digit = checksumStr.substring(i, (i + 1));
       tmpNum = int.parse(digit, radix: 10);
@@ -209,18 +211,18 @@ class AutoValidate {
   }
 
   /// ISBN Validator (10 - 13)
-  static bool isbn(String input, [version]) {
+  static bool? isbn(String? input, [version]) {
     if (version == null) {
-      return isbn(input, '10') || isbn(input, '13');
+      return isbn(input!, '10')! || isbn(input, '13')!;
     }
 
     version = version.toString();
 
-    String sanitized = input.replaceAll(RegExp(r'[\s-]+'), '');
+    String? sanitized = input!.replaceAll(RegExp(r'[\s-]+'), '');
     int checksum = 0;
 
     if (version == '10') {
-      if (!AutoValidators.isbn10Validate.hasMatch(sanitized)) {
+      if (!AutoValidators.isbn10Validate!.hasMatch(sanitized)) {
         return false;
       }
       for (int i = 0; i < 9; i++) {
@@ -233,7 +235,7 @@ class AutoValidate {
       }
       return (checksum % 11 == 0);
     } else if (version == '13') {
-      if (!AutoValidators.isbn13Validate.hasMatch(sanitized)) {
+      if (!AutoValidators.isbn13Validate!.hasMatch(sanitized)) {
         return false;
       }
       var factor = [1, 3];
@@ -247,88 +249,88 @@ class AutoValidate {
   }
 
   /// MAC Address Validator
-  static bool macAddress(String input, {noColons}) {
+  static bool? macAddress(String? input, {noColons}) {
     if (noColons == true) {
-      return AutoValidators.macAddressNoColonsValidate.hasMatch(input);
+      return AutoValidators.macAddressNoColonsValidate!.hasMatch(input!);
     }
 
-    return AutoValidators.macAddressValidate.hasMatch(input) ||
-        AutoValidators.macAddressWithHyphenValidate.hasMatch(input) ||
-        AutoValidators.macAddressWithSpacesValidate.hasMatch(input);
+    return AutoValidators.macAddressValidate!.hasMatch(input!) ||
+        AutoValidators.macAddressWithHyphenValidate!.hasMatch(input) ||
+        AutoValidators.macAddressWithSpacesValidate!.hasMatch(input);
   }
 
   /// Hexadecimal Color Validator
-  static bool hexColor(String input) {
-    return AutoValidators.hexColorValidate.hasMatch(input);
+  static bool? hexColor(String? input) {
+    return AutoValidators.hexColorValidate!.hasMatch(input!);
   }
 
   /// Hexadecimal Number Validator
-  static bool hexNumber(String input) {
-    return AutoValidators.hexNumberValidate.hasMatch(input);
+  static bool? hexNumber(String? input) {
+    return AutoValidators.hexNumberValidate!.hasMatch(input!);
   }
 
   /// Latitude and Longitude Validator
-  static bool latLng(String input) {
-    if (!input.contains(',')) {
+  static bool? latLng(String? input) {
+    if (!input!.contains(',')) {
       return false;
     }
     var pair = input.split(',');
-    return AutoValidators.latValidate.hasMatch(pair[0]) &&
-        AutoValidators.longValidate.hasMatch(pair[1]);
+    return AutoValidators.latValidate!.hasMatch(pair[0]) &&
+        AutoValidators.longValidate!.hasMatch(pair[1]);
   }
 
   /// MD5 Hash Validator
-  static bool md5(String input) {
-    return AutoValidators.md5Validate.hasMatch(input);
+  static bool? md5(String? input) {
+    return AutoValidators.md5Validate!.hasMatch(input!);
   }
 
   /// Magnet URI Validator
-  static bool magnetURI(String input) {
-    return AutoValidators.magnetURIValidate.hasMatch(input);
+  static bool? magnetURI(String? input) {
+    return AutoValidators.magnetURIValidate!.hasMatch(input!);
   }
 
   /// Mongo ID Validator
-  static bool mongoID(String input) {
-    return hexNumber(input) && input.length == 24;
+  static bool? mongoID(String? input) {
+    return hexNumber(input)! && input!.length == 24;
   }
 
   /// Multibyte Validator
-  static bool multibyte(String input) {
-    return AutoValidators.multibyteValidate.hasMatch(input);
+  static bool? multibyte(String? input) {
+    return AutoValidators.multibyteValidate!.hasMatch(input!);
   }
 
   /// Null Validator
-  static bool nullValue(String input) {
-    return input.trim().isEmpty || input.length == 0;
+  static bool? nullValue(String? input) {
+    return input!.trim().isEmpty || input.length == 0;
   }
 
   /// Non-Null Validator
-  static bool nonNullValue(String input) {
-    return input.trim().isNotEmpty || input.length != 0;
+  static bool? nonNullValue(String? input) {
+    return input!.trim().isNotEmpty || input.length != 0;
   }
 
   /// SameType Validator
-  static bool sameType(obj1, obj2) {
+  static bool? sameType(obj1, obj2) {
     return obj1.runtimeType == obj2.runtimeType;
   }
 
   /// Match Validator
-  static bool match(obj1, obj2) {
+  static bool? match(obj1, obj2) {
     return obj1 == obj2;
   }
 
   /// MinLength Validator
-  static bool minLength(String string, int min) {
-    return string.trim().length >= min;
+  static bool? minLength(String? string, int? min) {
+    return string!.trim().length >= min!;
   }
 
   /// MaxLength Validator
-  static bool maxLength(String string, int max) {
-    return string.trim().length <= max;
+  static bool? maxLength(String? string, int? max) {
+    return string!.trim().length <= max!;
   }
 
   /// BIC Validator
-  static bool bic(String input) {
-    return AutoValidators.bicValidate.hasMatch(input);
+  static bool? bic(String? input) {
+    return AutoValidators.bicValidate!.hasMatch(input!);
   }
 }

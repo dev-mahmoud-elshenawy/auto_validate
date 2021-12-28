@@ -6,186 +6,186 @@ import 'package:test/test.dart';
 void main() {
   group('Common Regular Expressions Tests', () {
     test('CreditCard Test', () {
-      var masterCard = '5555555555554444';
-      var visa = '4012888888881881';
-      var americanExpress = '378282246310005';
-      var card = '987654321098765';
+      String? masterCard = '5555555555554444';
+      String? visa = '4012888888881881';
+      String? americanExpress = '378282246310005';
+      String? card = '987654321098765';
 
-      expect(AutoValidate.creditCard(masterCard.toString()), true);
-      expect(AutoValidate.creditCard(visa.toString()), true);
-      expect(AutoValidate.creditCard(americanExpress.toString()), true);
-      expect(AutoValidate.creditCard(card.toString()), false);
+      expect(AutoValidate.creditCard(masterCard), true);
+      expect(AutoValidate.creditCard(visa), true);
+      expect(AutoValidate.creditCard(americanExpress), true);
+      expect(AutoValidate.creditCard(card), false);
     });
 
     test('Alphanumeric Test', () {
-      var success = 'mahmoud123elshenawy';
-      var fail = 'mahmoud@elshenawy.com';
+      String? success = 'mahmoud123elshenawy';
+      String? fail = 'mahmoud@elshenawy.com';
 
-      expect(AutoValidate.alphanumeric(success.toString()), true);
+      expect(AutoValidate.alphanumeric(success), true);
       expect(AutoValidate.alphanumeric(fail), false);
     });
 
     test('Alphanumeric With Spaces Test', () {
-      var success = 'mahmoud 123elshenawy';
-      var fail = 'mahmoud@elshenawy.com';
+      String? success = 'mahmoud 123elshenawy';
+      String? fail = 'mahmoud@elshenawy.com';
 
-      expect(AutoValidate.alphanumericWithSpaces(success.toString()), true);
-      expect(AutoValidate.alphanumericWithSpaces(fail.toString()), false);
+      expect(AutoValidate.alphanumericWithSpaces(success), true);
+      expect(AutoValidate.alphanumericWithSpaces(fail), false);
     });
 
     test('Alphabet Test', () {
-      var success = 'Mahmoud';
-      var fail = 'mahmoud@elshenawy.com';
+      String? success = 'Mahmoud';
+      String? fail = 'mahmoud@elshenawy.com';
 
-      expect(AutoValidate.alphabet(success.toString()), true);
-      expect(AutoValidate.alphabet(fail.toString()), false);
+      expect(AutoValidate.alphabet(success), true);
+      expect(AutoValidate.alphabet(fail), false);
     });
 
     test('LowerCase Test', () {
-      var success = 'mahmoud';
-      var fail = 'Mahmoud';
+      String? success = 'mahmoud';
+      String? fail = 'Mahmoud';
 
-      expect(AutoValidate.lowerCase(success.toString()), true);
-      expect(AutoValidate.lowerCase(fail.toString()), false);
+      expect(AutoValidate.lowerCase(success), true);
+      expect(AutoValidate.lowerCase(fail), false);
     });
 
     test('UpperCase Test', () {
-      var success = 'MAHMOUD';
-      var fail = 'MAHMOUD';
+      String? success = 'MAHMOUD';
+      String? fail = 'MAHMOUD';
 
-      expect(AutoValidate.upperCase(success.toString()), true);
-      expect(AutoValidate.upperCase(fail.toString()), false);
+      expect(AutoValidate.upperCase(success), true);
+      expect(AutoValidate.upperCase(fail), false);
     });
 
     test('Digits Test', () {
-      var success = '874654';
-      var fail = '456e465';
+      String? success = '874654';
+      String? fail = '456e465';
 
-      expect(AutoValidate.digits(success.toString()), true);
-      expect(AutoValidate.digits(fail.toString()), false);
+      expect(AutoValidate.digits(success), true);
+      expect(AutoValidate.digits(fail), false);
     });
 
     test('Decimals Test', () {
-      var success = '8.74654';
-      var fail = '+456465';
+      String? success = '8.74654';
+      String? fail = '+456465';
 
-      expect(AutoValidate.decimals(success.toString()), true);
-      expect(AutoValidate.decimals(fail.toString()), false);
+      expect(AutoValidate.decimals(success), true);
+      expect(AutoValidate.decimals(fail), false);
     });
 
     test('Signed Decimals Test', () {
-      var success = '-8.74654';
-      var fail = '456465/4';
+      String? success = '-8.74654';
+      String? fail = '456465/4';
 
-      expect(AutoValidate.decimalsSigned(success.toString()), true);
-      expect(AutoValidate.decimalsSigned(fail.toString()), false);
+      expect(AutoValidate.decimalsSigned(success), true);
+      expect(AutoValidate.decimalsSigned(fail), false);
     });
 
     test('User Name Test', () {
-      var success = 'mahmoud-elshenawy';
-      var fail = '@mahmoud';
+      String? success = 'mahmoud-elshenawy';
+      String? fail = '@mahmoud';
 
-      expect(AutoValidate.userName(success.toString()), true);
-      expect(AutoValidate.userName(fail.toString()), false);
+      expect(AutoValidate.userName(success), true);
+      expect(AutoValidate.userName(fail), false);
     });
 
     test('Password Test', () {
-      var success = 'mahm000udElshenawy';
-      var fail = 'mahmoudelshenawy';
+      String? success = 'mahm000udElshenawy';
+      String? fail = 'mahmoudelshenawy';
 
-      expect(AutoValidate.password(success.toString()), true);
-      expect(AutoValidate.password(fail.toString()), false);
+      expect(AutoValidate.password(success), true);
+      expect(AutoValidate.password(fail), false);
     });
 
     test('Strong Password Test', () {
-      var success = 'm@hm000udElshen@wy';
-      var fail = 'mahmoudelshenawy';
+      String? success = 'm@hm000udElshen@wy';
+      String? fail = 'mahmoudelshenawy';
 
-      expect(AutoValidate.passwordStrong(success.toString()), true);
-      expect(AutoValidate.passwordStrong(fail.toString()), false);
+      expect(AutoValidate.passwordStrong(success), true);
+      expect(AutoValidate.passwordStrong(fail), false);
     });
 
     test('Email Test', () {
-      var success = 'mahmoud@elshenawy.com';
-      var fail = 'mahmoud@el.shenawy';
+      String? success = 'mahmoud@elshenawy.com';
+      String? fail = 'mahmoud@el.shenawy';
 
-      expect(AutoValidate.email(success.toString()), true);
-      expect(AutoValidate.email(fail.toString()), false);
+      expect(AutoValidate.email(success), true);
+      expect(AutoValidate.email(fail), false);
     });
 
     test('IPV4 Test', () {
-      var success = '255.125.205.180';
-      var fail = '255.256.205.180';
+      String? success = '255.125.205.180';
+      String? fail = '255.256.205.180';
 
-      expect(AutoValidate.ipv4(success.toString()), true);
-      expect(AutoValidate.ipv4(fail.toString()), false);
+      expect(AutoValidate.ipv4(success), true);
+      expect(AutoValidate.ipv4(fail), false);
     });
 
     test('IPV6 Test', () {
-      var success = '2001:0db8:85a3:0000:0000:8a2e:0370:7334';
-      var fail = '2001:0db8:85a3:0000:0000:0370:7334';
+      String? success = '2001:0db8:85a3:0000:0000:8a2e:0370:7334';
+      String? fail = '2001:0db8:85a3:0000:0000:0370:7334';
 
-      expect(AutoValidate.ipv6(success.toString()), true);
-      expect(AutoValidate.ipv6(fail.toString()), false);
+      expect(AutoValidate.ipv6(success), true);
+      expect(AutoValidate.ipv6(fail), false);
     });
 
     test('URL Test', () {
-      var success = 'https://www.mahmoudelshenawy.com';
-      var fail = 'mahmoud.elshenawy';
+      String? success = 'https://www.mahmoudelshenawy.com';
+      String? fail = 'mahmoud.elshenawy';
 
-      expect(AutoValidate.url(success.toString()), true);
-      expect(AutoValidate.url(fail.toString()), false);
+      expect(AutoValidate.url(success), true);
+      expect(AutoValidate.url(fail), false);
     });
 
     test('Date (MMDDYYYY) Test', () {
-      var success = '15/06/1997';
-      var fail = '15/06/1997';
+      String? success = '15/06/1997';
+      String? fail = '15/06/1997';
 
-      expect(AutoValidate.dateMMDDYYYY(success.toString()), true);
-      expect(AutoValidate.dateMMDDYYYY(fail.toString()), false);
+      expect(AutoValidate.dateMMDDYYYY(success), true);
+      expect(AutoValidate.dateMMDDYYYY(fail), false);
     });
 
     test('Date (YYYYMMDD) Test', () {
-      var success = '1997 06 15';
-      var fail = '1997/06/15';
+      String? success = '1997 06 15';
+      String? fail = '1997/06/15';
 
-      expect(AutoValidate.dateYYYYMMDD(success.toString()), true);
-      expect(AutoValidate.dateYYYYMMDD(fail.toString()), false);
+      expect(AutoValidate.dateYYYYMMDD(success), true);
+      expect(AutoValidate.dateYYYYMMDD(fail), false);
     });
 
     test('SSN Test', () {
-      var success = '445-82-6835';
-      var fail = '121-72-55456';
+      String? success = '445-82-6835';
+      String? fail = '121-72-55456';
 
-      expect(AutoValidate.ssn(success.toString()), true);
-      expect(AutoValidate.ssn(fail.toString()), false);
+      expect(AutoValidate.ssn(success), true);
+      expect(AutoValidate.ssn(fail), false);
     });
 
     test('Phone Number Test', () {
-      var success = '+447911123456';
-      var fail = '+987a9875';
+      String? success = '+447911123456';
+      String? fail = '+987a9875';
 
-      expect(AutoValidate.phone(success.toString()), true);
-      expect(AutoValidate.phone(fail.toString()), false);
+      expect(AutoValidate.phone(success), true);
+      expect(AutoValidate.phone(fail), false);
 
-      expect(AutoValidate.phone(success.toString()), true);
-      expect(AutoValidate.phone(fail.toString()), false);
+      expect(AutoValidate.phone(success), true);
+      expect(AutoValidate.phone(fail), false);
     });
 
     test('Passport Test', () {
-      var success = '9876543210';
-      var fail = '0000000000';
+      String? success = '9876543210';
+      String? fail = '0000000000';
 
-      expect(AutoValidate.passport(success.toString()), true);
-      expect(AutoValidate.passport(fail.toString()), false);
+      expect(AutoValidate.passport(success), true);
+      expect(AutoValidate.passport(fail), false);
     });
 
     test('Arabic Input Test', () {
-      var success = 'محمود الشناوى';
-      var fail = 'mahmoud el shenawy';
+      String? success = 'محمود الشناوى';
+      String? fail = 'mahmoud el shenawy';
 
-      expect(AutoValidate.inputArabic(success.toString()), true);
-      expect(AutoValidate.inputArabic(fail.toString()), false);
+      expect(AutoValidate.inputArabic(success), true);
+      expect(AutoValidate.inputArabic(fail), false);
     });
   });
 }

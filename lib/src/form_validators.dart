@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart' show FormFieldValidator;
 
 class FormValidator {
   ///Non-Null Required Field Validator
-  static FormFieldValidator<String> required({String errorMessage}) {
+  static FormFieldValidator<String?> required({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -18,15 +18,15 @@ class FormValidator {
   }
 
   /// MinLength Validator
-  static FormFieldValidator<String> minLength(
-      {int minLength, String errorMessage}) {
+  static FormFieldValidator<String?> minLength(
+      {int? minLength, String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
       }
       if (value.isEmpty) return null;
 
-      if (value.length < minLength)
+      if (value.length < minLength!)
         return errorMessage;
       else
         return null;
@@ -34,15 +34,15 @@ class FormValidator {
   }
 
   /// MaxLength Validator
-  static FormFieldValidator<String> maxLength(
-      {int maxLength, String errorMessage}) {
+  static FormFieldValidator<String?> maxLength(
+      {int? maxLength, String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
       }
       if (value.isEmpty) return null;
 
-      if (value.length > maxLength)
+      if (value.length > maxLength!)
         return errorMessage;
       else
         return null;
@@ -50,7 +50,7 @@ class FormValidator {
   }
 
   /// Email Validator
-  static FormFieldValidator<String> email({String errorMessage}) {
+  static FormFieldValidator<String?> email({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -58,7 +58,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.email(value))
+        if (AutoValidate.email(value)!)
           return null;
         else
           return errorMessage;
@@ -67,7 +67,7 @@ class FormValidator {
   }
 
   /// Password Validator
-  static FormFieldValidator<String> password({String errorMessage}) {
+  static FormFieldValidator<String?> password({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -75,7 +75,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.password(value))
+        if (AutoValidate.password(value)!)
           return null;
         else
           return errorMessage;
@@ -84,7 +84,7 @@ class FormValidator {
   }
 
   /// Password Strong Validator
-  static FormFieldValidator<String> passwordStrong({String errorMessage}) {
+  static FormFieldValidator<String?> passwordStrong({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -92,7 +92,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.passwordStrong(value))
+        if (AutoValidate.passwordStrong(value)!)
           return null;
         else
           return errorMessage;
@@ -101,7 +101,7 @@ class FormValidator {
   }
 
   /// Phone Validator
-  static FormFieldValidator<String> phone({String errorMessage}) {
+  static FormFieldValidator<String> phone({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -109,7 +109,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.phone(value))
+        if (AutoValidate.phone(value)!)
           return null;
         else
           return errorMessage;
@@ -118,7 +118,8 @@ class FormValidator {
   }
 
   /// Phone International Validator
-  static FormFieldValidator<String> phoneInternational({String errorMessage}) {
+  static FormFieldValidator<String?> phoneInternational(
+      {String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -126,7 +127,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.phoneInternational(value))
+        if (AutoValidate.phoneInternational(value)!)
           return null;
         else
           return errorMessage;
@@ -135,7 +136,7 @@ class FormValidator {
   }
 
   /// UserName Validator
-  static FormFieldValidator<String> userName({String errorMessage}) {
+  static FormFieldValidator<String?> userName({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -143,7 +144,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.userName(value))
+        if (AutoValidate.userName(value)!)
           return null;
         else
           return errorMessage;
@@ -152,7 +153,7 @@ class FormValidator {
   }
 
   /// Passport Validator
-  static FormFieldValidator<String> passport({String errorMessage}) {
+  static FormFieldValidator<String?> passport({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -160,7 +161,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.passport(value))
+        if (AutoValidate.passport(value)!)
           return null;
         else
           return errorMessage;
@@ -169,7 +170,7 @@ class FormValidator {
   }
 
   /// Date (YYYYMMDD) Validator
-  static FormFieldValidator<String> dateYYYYMMDD({String errorMessage}) {
+  static FormFieldValidator<String?> dateYYYYMMDD({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -177,7 +178,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.dateYYYYMMDD(value))
+        if (AutoValidate.dateYYYYMMDD(value)!)
           return null;
         else
           return errorMessage;
@@ -186,7 +187,7 @@ class FormValidator {
   }
 
   /// Date (YYYYMMDD) Validator
-  static FormFieldValidator<String> dateMMDDYYYY({String errorMessage}) {
+  static FormFieldValidator<String?> dateMMDDYYYY({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -194,7 +195,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.dateMMDDYYYY(value))
+        if (AutoValidate.dateMMDDYYYY(value)!)
           return null;
         else
           return errorMessage;
@@ -203,7 +204,7 @@ class FormValidator {
   }
 
   /// Alphanumeric Validator
-  static FormFieldValidator<String> alphanumeric({String errorMessage}) {
+  static FormFieldValidator<String?> alphanumeric({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -211,7 +212,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.alphanumeric(value))
+        if (AutoValidate.alphanumeric(value)!)
           return null;
         else
           return errorMessage;
@@ -220,8 +221,8 @@ class FormValidator {
   }
 
   /// Alphanumeric With Spaces Validator
-  static FormFieldValidator<String> alphanumericWithSpaces(
-      {String errorMessage}) {
+  static FormFieldValidator<String?> alphanumericWithSpaces(
+      {String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -229,7 +230,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.alphanumericWithSpaces(value))
+        if (AutoValidate.alphanumericWithSpaces(value)!)
           return null;
         else
           return errorMessage;
@@ -238,7 +239,7 @@ class FormValidator {
   }
 
   /// Alphabet With Spaces Validator
-  static FormFieldValidator<String> alphabet({String errorMessage}) {
+  static FormFieldValidator<String?> alphabet({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -246,7 +247,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.alphabet(value))
+        if (AutoValidate.alphabet(value)!)
           return null;
         else
           return errorMessage;
@@ -255,7 +256,7 @@ class FormValidator {
   }
 
   /// Alphabet With Spaces Validator
-  static FormFieldValidator<String> url({String errorMessage}) {
+  static FormFieldValidator<String?> url({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -263,7 +264,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.url(value))
+        if (AutoValidate.url(value)!)
           return null;
         else
           return errorMessage;
@@ -272,7 +273,7 @@ class FormValidator {
   }
 
   /// Input Arabic Validator
-  static FormFieldValidator<String> inputArabic({String errorMessage}) {
+  static FormFieldValidator<String?> inputArabic({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -280,7 +281,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.inputArabic(value))
+        if (AutoValidate.inputArabic(value)!)
           return null;
         else
           return errorMessage;
@@ -289,7 +290,7 @@ class FormValidator {
   }
 
   /// Credit Card Validator
-  static FormFieldValidator<String> creditCard({String errorMessage}) {
+  static FormFieldValidator<String?> creditCard({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -297,7 +298,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.creditCard(value))
+        if (AutoValidate.creditCard(value)!)
           return null;
         else
           return errorMessage;
@@ -306,7 +307,7 @@ class FormValidator {
   }
 
   /// SSN Validator
-  static FormFieldValidator<String> ssn({String errorMessage}) {
+  static FormFieldValidator<String?> ssn({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -314,7 +315,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.ssn(value))
+        if (AutoValidate.ssn(value)!)
           return null;
         else
           return errorMessage;
@@ -323,7 +324,7 @@ class FormValidator {
   }
 
   /// IPV4 Validator
-  static FormFieldValidator<String> ipv4({String errorMessage}) {
+  static FormFieldValidator<String?> ipv4({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -331,7 +332,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.ipv4(value))
+        if (AutoValidate.ipv4(value)!)
           return null;
         else
           return errorMessage;
@@ -340,7 +341,7 @@ class FormValidator {
   }
 
   /// IPV6 Validator
-  static FormFieldValidator<String> ipv6({String errorMessage}) {
+  static FormFieldValidator<String?> ipv6({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -348,7 +349,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.ipv6(value))
+        if (AutoValidate.ipv6(value)!)
           return null;
         else
           return errorMessage;
@@ -357,7 +358,7 @@ class FormValidator {
   }
 
   /// LowerCase Validator
-  static FormFieldValidator<String> lowerCase({String errorMessage}) {
+  static FormFieldValidator<String?> lowerCase({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -365,7 +366,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.lowerCase(value))
+        if (AutoValidate.lowerCase(value)!)
           return null;
         else
           return errorMessage;
@@ -374,7 +375,7 @@ class FormValidator {
   }
 
   /// UpperCase Validator
-  static FormFieldValidator<String> upperCase({String errorMessage}) {
+  static FormFieldValidator<String?> upperCase({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -382,7 +383,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.upperCase(value))
+        if (AutoValidate.upperCase(value)!)
           return null;
         else
           return errorMessage;
@@ -391,7 +392,7 @@ class FormValidator {
   }
 
   /// Digits Validator
-  static FormFieldValidator<String> digits({String errorMessage}) {
+  static FormFieldValidator<String?> digits({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -399,7 +400,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.digits(value))
+        if (AutoValidate.digits(value)!)
           return null;
         else
           return errorMessage;
@@ -408,7 +409,7 @@ class FormValidator {
   }
 
   /// Decimals Validator
-  static FormFieldValidator<String> decimals({String errorMessage}) {
+  static FormFieldValidator<String?> decimals({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -416,7 +417,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.decimals(value))
+        if (AutoValidate.decimals(value)!)
           return null;
         else
           return errorMessage;
@@ -425,7 +426,7 @@ class FormValidator {
   }
 
   /// Signed Decimals Validator
-  static FormFieldValidator<String> decimalsSigned({String errorMessage}) {
+  static FormFieldValidator<String?> decimalsSigned({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -433,7 +434,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.decimalsSigned(value))
+        if (AutoValidate.decimalsSigned(value)!)
           return null;
         else
           return errorMessage;
@@ -442,7 +443,7 @@ class FormValidator {
   }
 
   /// Base64 Validator
-  static FormFieldValidator<String> base64({String errorMessage}) {
+  static FormFieldValidator<String?> base64({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -450,7 +451,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.base64(value))
+        if (AutoValidate.base64(value)!)
           return null;
         else
           return errorMessage;
@@ -459,7 +460,7 @@ class FormValidator {
   }
 
   /// Base32 Validator
-  static FormFieldValidator<String> base32({String errorMessage}) {
+  static FormFieldValidator<String?> base32({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -467,7 +468,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.base32(value))
+        if (AutoValidate.base32(value)!)
           return null;
         else
           return errorMessage;
@@ -476,7 +477,7 @@ class FormValidator {
   }
 
   /// Base58 Validator
-  static FormFieldValidator<String> base58({String errorMessage}) {
+  static FormFieldValidator<String?> base58({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -484,7 +485,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.base58(value))
+        if (AutoValidate.base58(value)!)
           return null;
         else
           return errorMessage;
@@ -493,7 +494,7 @@ class FormValidator {
   }
 
   /// ASCII Validator
-  static FormFieldValidator<String> ascii({String errorMessage}) {
+  static FormFieldValidator<String?> ascii({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -501,7 +502,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.ascii(value))
+        if (AutoValidate.ascii(value)!)
           return null;
         else
           return errorMessage;
@@ -510,7 +511,7 @@ class FormValidator {
   }
 
   /// Capitalized Validator
-  static FormFieldValidator<String> capitalized({String errorMessage}) {
+  static FormFieldValidator<String?> capitalized({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -518,7 +519,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.capitalized(value))
+        if (AutoValidate.capitalized(value)!)
           return null;
         else
           return errorMessage;
@@ -527,7 +528,7 @@ class FormValidator {
   }
 
   /// JWT Validator
-  static FormFieldValidator<String> jwt({String errorMessage}) {
+  static FormFieldValidator<String?> jwt({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -535,7 +536,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.jwt(value))
+        if (AutoValidate.jwt(value)!)
           return null;
         else
           return errorMessage;
@@ -544,7 +545,7 @@ class FormValidator {
   }
 
   /// ISIN Validator
-  static FormFieldValidator<String> isin({String errorMessage}) {
+  static FormFieldValidator<String?> isin({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -552,7 +553,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.isin(value))
+        if (AutoValidate.isin(value)!)
           return null;
         else
           return errorMessage;
@@ -561,7 +562,7 @@ class FormValidator {
   }
 
   /// Mac Address Validator (Without Colons)
-  static FormFieldValidator<String> macAddress({String errorMessage}) {
+  static FormFieldValidator<String?> macAddress({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -569,7 +570,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.macAddress(value))
+        if (AutoValidate.macAddress(value)!)
           return null;
         else
           return errorMessage;
@@ -578,7 +579,7 @@ class FormValidator {
   }
 
   /// Latitude and Longitude Validator
-  static FormFieldValidator<String> latLng({String errorMessage}) {
+  static FormFieldValidator<String?> latLng({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -586,7 +587,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.latLng(value))
+        if (AutoValidate.latLng(value)!)
           return null;
         else
           return errorMessage;
@@ -595,7 +596,7 @@ class FormValidator {
   }
 
   ///  MD5 Hash Validator
-  static FormFieldValidator<String> md5({String errorMessage}) {
+  static FormFieldValidator<String?> md5({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -603,7 +604,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.md5(value))
+        if (AutoValidate.md5(value)!)
           return null;
         else
           return errorMessage;
@@ -612,7 +613,7 @@ class FormValidator {
   }
 
   ///  Magnet URI Validator
-  static FormFieldValidator<String> magnetURI({String errorMessage}) {
+  static FormFieldValidator<String?> magnetURI({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -620,7 +621,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.magnetURI(value))
+        if (AutoValidate.magnetURI(value)!)
           return null;
         else
           return errorMessage;
@@ -629,7 +630,7 @@ class FormValidator {
   }
 
   ///  Mongo ID Validator
-  static FormFieldValidator<String> mongoID({String errorMessage}) {
+  static FormFieldValidator<String?> mongoID({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -637,7 +638,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.mongoID(value))
+        if (AutoValidate.mongoID(value)!)
           return null;
         else
           return errorMessage;
@@ -646,7 +647,7 @@ class FormValidator {
   }
 
   ///  Multibyte Validator
-  static FormFieldValidator<String> multibyte({String errorMessage}) {
+  static FormFieldValidator<String?> multibyte({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -654,7 +655,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.multibyte(value))
+        if (AutoValidate.multibyte(value)!)
           return null;
         else
           return errorMessage;
@@ -663,7 +664,7 @@ class FormValidator {
   }
 
   ///  BIC Validator
-  static FormFieldValidator<String> bic({String errorMessage}) {
+  static FormFieldValidator<String?> bic({String? errorMessage}) {
     return (value) {
       if (value == null) {
         value = '';
@@ -671,7 +672,7 @@ class FormValidator {
       if (value.isEmpty)
         return null;
       else {
-        if (AutoValidate.bic(value))
+        if (AutoValidate.bic(value)!)
           return null;
         else
           return errorMessage;
@@ -680,10 +681,10 @@ class FormValidator {
   }
 
   /// Combination From More Than One Form Validator
-  static FormFieldValidator<String> combination(
-      {List<FormFieldValidator<String>> validators}) {
+  static FormFieldValidator<String?> combination(
+      {List<FormFieldValidator<String?>>? validators}) {
     return (value) {
-      for (final validator in validators) {
+      for (final validator in validators!) {
         final result = validator(value);
         if (result != null) return result;
       }

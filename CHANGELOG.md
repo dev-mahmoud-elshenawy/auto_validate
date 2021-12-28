@@ -1,3 +1,8 @@
+## 2.0.0-nullsafety.0
+
+- **Migrated to Null Safety**
+- Upgrade Dart SDK constraints to >=2.12.0 <3.0.0
+
 ## 1.0.8
 
 - No Big Changes Happened
