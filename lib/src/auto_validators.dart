@@ -3,185 +3,294 @@ import 'package:flutter/foundation.dart';
 
 part 'auto_validators.freezed.dart';
 
-/// Created By Mahmoud El Shenawy (Dev.Mahmoud.ElShenawy@Gmail.com)
-
+/// Created By Mahmoud El Shenawy (Dev.M.ElShenawy@Icloud.com)
+///
+///
+/// A class that provides various validation regex patterns for different input types.
+/// This class contains static regex patterns to validate usernames, passwords, emails, phone numbers, and more.
 @immutable
 @freezed
 class AutoValidators with _$AutoValidators {
   AutoValidators._();
 
+  /// Creates an instance of [AutoValidators].
+  ///
+  /// The [input] parameter is an optional string that can be validated
+  /// using the various validation methods provided in this class.
   factory AutoValidators(String? input) = _input;
 
-  // User Validate :-
+  /// Validates usernames.
+  ///
+  /// Usernames must be alphanumeric and can include underscores and hyphens.
+  /// They must be between 3 to 16 characters long.
+  static RegExp? userNameValidate = RegExp(r'^[a-zA-Z0-9_-]{3,16}$');
 
-  /// It Contains Alphanumeric, underscores and hyphens and its long between 3 to 16 characters.
-  static RegExp? userNameValidate =  RegExp(r'^[a-z0-9_-]{3,16}$');
-
-  /// It Contains at least 1 lowerCase letter, upperCase letter, number and 8 characters long.
+  /// Validates passwords.
+  ///
+  /// Passwords must contain at least one lowercase letter, one uppercase letter,
+  /// one number, and be at least 8 characters long.
   static RegExp? passwordValidate =
-      RegExp(r'(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{8,}$');
+      RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$');
 
-  ///  It Contains at least 1 lowerCase letter, upperCase letter, number, special character and 8 characters long.
-  static RegExp? passwordStrongValidate = RegExp(
-      r'''(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=~`|:;"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,}''');
+  /// Validates strong passwords.
+  ///
+  /// Strong passwords must contain at least one lowercase letter,
+  /// one uppercase letter, one number, one special character,
+  /// and be at least 8 characters long.
+  static RegExp? passwordStrongValidate =
+      RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$');
 
-  /// It Contains email Format Correctly.
-  static RegExp? emailValidate = RegExp(
-      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
+  /// Validates email addresses.
+  ///
+  /// Ensures that the provided email address conforms to standard email format.
+  static RegExp? emailValidate =
+      RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
 
-  /// It Contains Phone Number Format Correctly.
-  static RegExp? phoneNumberValidate =
-      RegExp(r'(^((?:[+?0?0?966]+)(?:\s?\d{2})(?:\s?\d{7}))$)');
+  /// Validates phone numbers.
+  ///
+  /// Ensures that the phone number is in the correct format for the specified region.
+  static RegExp? phoneNumberValidate = RegExp(r'^\+?[0-9]\d{0,14}$');
 
-  /// It Contains International Phone Number Format Correctly.
+  /// Validates international phone numbers.
+  ///
+  /// Ensures that the international phone number adheres to the specified format.
   static RegExp? internationalPhoneNumberValidate = RegExp(
-      r'\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$');
+      r'^\+?(?:\d{1,3})?\s?\(?\d{1,4}?\)?[\s.-]?\d{1,4}[\s.-]?\d{1,4}[\s.-]?\d{1,9}$');
 
-  // -----------------------------------------------------------------------------------------------------------------------------
+  // Identity Validation
 
-  // Identity Validate :-
-
-  /// It Contains Credit Card Format Correctly.
+  /// Validates credit card numbers.
+  ///
+  /// Ensures that the credit card number is in a valid format for various card types
+  /// such as Visa, MasterCard, American Express, and others.
   static RegExp? creditCardValidate = RegExp(
-      r'^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6011[0-9]{12}|622((12[6-9]|1[3-9][0-9])|([2-8][0-9][0-9])|(9(([0-1][0-9])|(2[0-5]))))[0-9]{10}|64[4-9][0-9]{13}|65[0-9]{14}|3(?:0[0-5]|[68][0-9])[0-9]{11}|3[47][0-9]{13})*$');
+      r'^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6011[0-9]{12}|622[0-9]{12,15}|65[0-9]{14}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11})$');
 
-  /// It Contains SNN (Social Security Number) Format Correctly.
-  static RegExp? ssnValidate = RegExp(r'^([0-9]{3}[-]*[0-9]{2}[-]*[0-9]{4})*$');
+  /// Validates Social Security Numbers (SSN).
+  ///
+  /// Ensures that the SSN is in the correct format, allowing for optional dashes.
+  static RegExp? ssnValidate = RegExp(r'^\d{3}-?\d{2}-?\d{4}$');
 
-  /// It Contains Passport Format Correctly.
+  /// Validates passport numbers.
+  ///
+  /// Ensures that the passport number is alphanumeric and between 3 to 20 characters long.
   static RegExp? passportValidate = RegExp(r'^(?!^0+$)[a-zA-Z0-9]{3,20}$');
 
-  /// It Contains ISIN (International Securities Identification Number) Format Correctly.
-  static RegExp? isinValidate = RegExp(r'/^[A-Z]{2}[0-9A-Z]{9}[0-9]$/');
+  /// Validates International Securities Identification Numbers (ISIN).
+  ///
+  /// Ensures that the ISIN format is correct, consisting of 2 letters followed by 9 alphanumeric characters and a check digit.
+  static RegExp? isinValidate = RegExp(r'^[A-Z]{2}[0-9A-Z]{9}[0-9]$');
 
-  /// It Contains ISBN10 (International Standard Book Number - Version 10) Format Correctly.
-  static RegExp? isbn10Validate = RegExp(r'^(?:[0-9]{9}X|[0-9]{10})$');
+  /// Validates ISBN-10 numbers.
+  ///
+  /// Ensures that the ISBN-10 number is either 9 digits followed by 'X' or 10 digits.
+  static RegExp isbn10Validate = RegExp(r'^(?:\d{9}X|\d{10})$');
 
-  /// It Contains ISBN13 (International Standard Book Number - Version 13) Format Correctly.
-  static RegExp? isbn13Validate = RegExp(r'^(?:[0-9]{13})$');
+  /// Validates ISBN-13 numbers.
+  ///
+  /// Ensures that the ISBN-13 number is exactly 13 digits.
+  static RegExp isbn13Validate = RegExp(r'^(978|979)\d{10}$');
 
-  /// It Contains BIC (Bank Identifier Code) Format Correctly.
-  static RegExp? bicValidate = RegExp(r'/^[A-z]{4}[A-z]{2}\w{2}(\w{3})?$/');
+  /// Validates Bank Identifier Codes (BIC).
+  ///
+  /// Ensures that the BIC format consists of 4 letters, 2 letters, and optional 2 or 3 alphanumeric characters.
+  static RegExp? bicValidate = RegExp(r'^[A-Z]{4}[A-Z]{2}[0-9A-Z]{0,3}$');
 
-  // -----------------------------------------------------------------------------------------------------------------------------
+  /// Validates dates in MM/DD/YYYY format.
+  ///
+  /// Ensures that the provided date is valid according to the MM/DD/YYYY calendar format.
+  static RegExp? dateMMDDYYYYValidate =
+      RegExp(r'^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(19|20)?\d{2}$');
 
-  // Date Validate :-
+  /// Validates dates in YYYY/MM/DD format.
+  ///
+  /// Ensures that the provided date is valid according to the YYYY/MM/DD calendar format.
+  static RegExp? dateYYYYMMDDValidate =
+      RegExp(r'^(19|20)?\d{2}/(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])$');
 
-  /// It Contains Date Format Correctly. (Validate The Calendar Date In MM/DD/YYYY).
-  static RegExp? dateMMDDYYYYValidate = RegExp(
-      r'^((0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](19|20)?[0-9]{2})*$');
+  /// Validates dates in DD/MM/YYYY format.
+  ///
+  /// Ensures that the provided date is valid according to the DD/MM/YYYY calendar format.
+  static RegExp? dateDDMMYYYYValidate =
+      RegExp(r'^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/(19|20)?\d{2}$');
 
-  /// It Contains Date Format Correctly. (Validate The Calendar Date In YYYY/MM/DD).
-  static RegExp? dateYYYYMMDDValidate = RegExp(
-      r'^((19|20)?[0-9]{2}[- /.](0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01]))*$');
-
-  // -----------------------------------------------------------------------------------------------------------------------------
-
-  // Internet Validate :-
-
-  /// It Contains IpV4 (Internet Protocol Version 4) Format Correctly.
+  /// Validates IPv4 addresses.
+  ///
+  /// Ensures that the provided IP address is valid according to the IPv4 format.
   static RegExp? ipv4Validate = RegExp(
-      r'^((?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))*$');
+      r'^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$');
 
-  /// It Contains IpV6 (Internet Protocol Version 6) Format Correctly.
-  static RegExp? ipv6Validate = RegExp(
-      r'(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))');
+  /// Validates IPv6 addresses.
+  ///
+  /// Ensures that the provided IP address is valid according to the IPv6 format.
+  static RegExp? ipv6Validate =
+      RegExp(r'(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|'
+          r'([0-9a-fA-F]{1,4}:){1,7}:|'
+          r'([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|'
+          r'([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|'
+          r'([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|'
+          r'([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|'
+          r'([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|'
+          r'[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|'
+          r':((:[0-9a-fA-F]{1,4}){1,7}|:)|'
+          r'fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|'
+          r'::(ffff(:0{1,4}){0,1}:){0,1}'
+          r'((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}'
+          r'(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|'
+          r'([0-9a-fA-F]{1,4}:){1,4}:'
+          r'((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}'
+          r'(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))$');
 
-  /// /// It Contains URL Format Correctly.
+  /// Validates URLs.
+  ///
+  /// Ensures that the provided URL is valid according to the standard URL format.
   static RegExp? urlValidate = RegExp(
-      r'(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)');
+      r'^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$');
 
-  /// It Contains JWT (Json Web Token) Format Format Correctly.
+  /// Validates JWT (JSON Web Token) format.
+  ///
+  /// Ensures that the provided JWT is valid according to the JWT format.
   static RegExp? jwtValidate = RegExp(
-      r'/^([A-Za-z0-9\-_~+\/]+[=]{0,2})\.([A-Za-z0-9\-_~+\/]+[=]{0,2})(?:\.([A-Za-z0-9\-_~+\/]+[=]{0,2}))?$/');
+      r'^([A-Za-z0-9\-_~+\/]+[=]{0,2})\.([A-Za-z0-9\-_~+\/]+[=]{0,2})(?:\.([A-Za-z0-9\-_~+\/]+[=]{0,2}))?$');
 
-  /// It Contains ASCII (American Standard Code for Information Interchange) Format Format Correctly.
-  static RegExp? asciiValidate = RegExp(r'/^[\x00-\x7F]+$/');
+  /// Validates ASCII characters.
+  ///
+  /// Ensures that the provided input contains only ASCII characters.
+  static RegExp? asciiValidate = RegExp(r'^[\x00-\x7F]+$');
 
-  /// It Contains MAC Address (Media Access Control) Format Correctly.
+  /// Validates UUID (Universally Unique Identifier) format.
+  ///
+  /// Ensures that the provided UUID is valid according to the UUID format.
+  static RegExp? uuidValidate = RegExp(
+      r'^[{(]?[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}[)}]?$');
+
+  /// Validates MAC Address format.
+  ///
+  /// Ensures that the provided MAC address is valid according to the MAC address format.
   static RegExp? macAddressValidate =
-      RegExp(r'/^([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F])$/');
+      RegExp(r'^([0-9a-fA-F]{2}[:-]){5}([0-9a-fA-F]{2})$');
 
-  /// It Contains MAC Address (Media Access Control) No Colons Format Correctly.
-  static RegExp? macAddressNoColonsValidate = RegExp(r'/^([0-9a-fA-F]){12}$/');
+  /// Validates MAC Address without colons.
+  ///
+  /// Ensures that the provided MAC address is valid without colons.
+  static RegExp? macAddressNoColonsValidate = RegExp(r'^[0-9a-fA-F]{12}$');
 
-  /// It Contains MAC Address With Hyphen Format Correctly.
+  /// Validates MAC Address with Hypens.
+  ///
+  /// Ensures that the provided MAC address is valid with Hypens.
   static RegExp? macAddressWithHyphenValidate =
-      RegExp(r'/^([0-9a-fA-F][0-9a-fA-F]-){5}([0-9a-fA-F][0-9a-fA-F])$/');
+      RegExp(r'^([0-9a-fA-F]{2}-){5}([0-9a-fA-F]{2})$');
 
-  /// It Contains MAC Address With Spaces Format Correctly.
+  /// Validates MAC Address with spaces.
+  ///
+  /// Ensures that the provided MAC address is valid with spaces.
   static RegExp? macAddressWithSpacesValidate =
-      RegExp(r'/^([0-9a-fA-F][0-9a-fA-F]\s){5}([0-9a-fA-F][0-9a-fA-F])$/');
+      RegExp(r'^([0-9a-fA-F]{2}\s){5}([0-9a-fA-F]{2})$');
 
-  /// It Contains Magnet URI Format Correctly.
-  static RegExp? magnetURIValidate =
-      RegExp(r'/^magnet:\?xt=urn:[a-z0-9]+:[a-z0-9]{32,40}&dn=.+&tr=.+$/i');
+  /// Validates Magnetic URI format.
+  ///
+  /// Ensures that the provided input is a valid magnetic URI.
+  static RegExp? magnetURIValidate = RegExp(
+      r'^magnet:\?xt=urn:[a-z0-9]+:[a-z0-9]{32,40}&dn=.+&tr=.+$',
+      caseSensitive: false);
 
-  // -----------------------------------------------------------------------------------------------------------------------------
-
-  // Common Validate :-
-  /// It Contains Alphanumeric Format Correctly.
+  /// Validates Alphanumeric Format Correctly.
+  ///
+  /// Ensures that the provided input contains only alphanumeric characters.
   static RegExp? alphanumericValidate = RegExp(r'^[a-zA-Z0-9]*$');
 
-  /// It Contains Alphanumeric with Spaces Format Correctly.
+  /// Validates Alphanumeric With Spaces Format Correctly.
+  ///
+  /// Ensures that the provided input contains only alphanumeric characters and spaces.
   static RegExp? alphanumericWithSpacesValidate = RegExp(r'^[a-zA-Z0-9 ]*$');
 
-  /// It Contains Alphabet Format Correctly.
+  /// Validates Alphabet Format Correctly.
+  ///
+  /// Ensures that the provided input contains only alphabetic characters.
   static RegExp? alphabetValidate = RegExp(r'^[a-zA-Z]*$');
 
-  /// It Contains LowerCase Format Correctly.
+  /// Validates Alphabet With Lowercase Format Correctly.
+  ///
+  /// Ensures that the provided input contains only lowercase alphabetic characters.
   static RegExp? lowerCaseValidate = RegExp(r'^[a-z]*$');
 
-  /// It Contains UpperCase Format Correctly.
+  /// Validates Alphabet With Uppercase Format Correctly.
+  ///
+  /// Ensures that the provided input contains only uppercase alphabetic characters.
   static RegExp? upperCaseValidate = RegExp(r'^[A-Z]*$');
 
-  /// It Contains Digits Format Correctly.
+  /// Validates Digits Format Correctly.
+  ///
+  /// Ensures that the provided input contains only digits.
   static RegExp? digitsValidate = RegExp(r'^[0-9]*$');
 
-  /// It Contains Decimals Format Correctly.
-  static RegExp? decimalsValidate = RegExp(r'^\d*(\.\d+)?$');
+  /// Validates Signed Digits Format Correctly.
+  ///
+  /// Ensures that the provided input contains only signed digits.
+  static RegExp? decimalsValidate = RegExp(r'^[+-]?(\d+(\.\d+)?|\.\d+)$');
 
-  /// It Contains Signed Decimals Format Correctly.
-  static RegExp? decimalsSignedValidate = RegExp(r'^[-+]?\d*(\.\d+)?$');
+  /// Validates Signed Digits Format Correctly.
+  ///
+  /// Ensures that the provided input contains only signed digits.
+  static RegExp? decimalsSignedValidate = RegExp(r'^[+-]?\d*(\.\d+)?$');
 
-  /// It Contains Input Arabic Format Correctly.
+  /// Validates Arabic Format Correctly.
+  ///
+  /// Ensures that the provided input contains only Arabic characters.
   static RegExp? inputArabicValidate =
       RegExp(r'^[\u0621-\u064A\u0660-\u0669 ]+$');
 
-  /// It Contains Base64 Format Format Correctly.
-  static RegExp? base64Validate = RegExp(r'/[^A-Z0-9+\/=]/i');
+  /// Validates Base64 Format Correctly.
+  ///
+  /// Ensures that the provided input is in Base64 format.
+  static RegExp? base64Validate = RegExp(r'^[A-Za-z0-9+/]+={0,2}$');
 
-  /// It Contains Base32 Format Format Correctly.
-  static RegExp? base32Validate = RegExp(r'/^[A-Z2-7]+=*$/');
+  /// Validates Base32 Format Correctly.
+  ///
+  /// Ensures that the provided input is in Base32 format.
+  static RegExp? base32Validate = RegExp(r'^[A-Z2-7]+=*$');
 
-  /// It Contains Base58 Format Format Correctly.
-  static RegExp? base58Validate = RegExp(r'/^[A-HJ-NP-Za-km-z1-9]*$/');
+  /// Validates Base58 Format Correctly.
+  ///
+  /// Ensures that the provided input is in Base58 format.
+  static RegExp? base58Validate = RegExp(r'^[A-HJ-NP-Za-km-z1-9]*$');
 
-  /// It Contains Emoji Format Format Correctly.
+  /// Validates Emoji Format Correctly.
+  ///
+  /// Ensures that the provided input contains emojis.
   static RegExp? emojiValidate = RegExp(
       r'(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])');
 
-  /// It Contains Hexadecimal Color Format Format Correctly.
-  static RegExp? hexColorValidate = RegExp(r'/^#?([0-9A-F]{3}|[0-9A-F]{6})$/i');
+  /// Validates Hexadecimal Color Format Correctly.
+  ///
+  /// Ensures that the provided input is in Hexadecimal color format.
+  static RegExp? hexColorValidate =
+      RegExp(r'^#?([0-9A-F]{3}|[0-9A-F]{6})$', caseSensitive: false);
 
-  /// It Contains Hexadecimal Number Format Format Correctly.
-  static RegExp? hexNumberValidate = RegExp(r'/^[0-9A-F]+$/i');
+  /// Validates Hexadecimal Number Format Correctly.
+  ///
+  /// Ensures that the provided input is in Hexadecimal number format.
+  static RegExp? hexNumberValidate =
+      RegExp(r'^[0-9A-F]+$', caseSensitive: false);
 
-  /// It Contains Latitude Format Format Correctly.
-  static RegExp? latValidate =
-      RegExp(r'/^\(?[+-]?(90(\.0+)?|[1-8]?\d(\.\d+)?)$/');
+  /// Validates Latitude Format Correctly.
+  ///
+  /// Ensures that the provided input is in Latitude format.
+  static RegExp? latValidate = RegExp(r'^[+-]?([90](\.0+)?|[1-8]?\d(\.\d+)?)$');
 
-  /// It Contains Longitude Format Format Correctly.
+  /// Validates Longitude Format Correctly.
+  ///
+  /// Ensures that the provided input is in Longitude format.
   static RegExp? longValidate =
-      RegExp(r'/^\s?[+-]?(180(\.0+)?|1[0-7]\d(\.\d+)?|\d{1,2}(\.\d+)?)\)?$/');
+      RegExp(r'^[+-]?((180(\.0+)?)|((1[0-7][0-9]|[1-9]?\d)(\.\d+)?))$');
 
-  /// It Contains MD5 (Message-Digest Algorithm) Hash Format Correctly.
-  static RegExp? md5Validate =
-      RegExp(r'/^\s?[+-]?(180(\.0+)?|1[0-7]\d(\.\d+)?|\d{1,2}(\.\d+)?)\)?$/');
+  /// Validates MD5 (Message-Digest Algorithm) Hash Format Correctly.
+  ///
+  /// Ensures that the provided input is in MD5 hash format.
+  static RegExp? md5Validate = RegExp(r'^[a-fA-F0-9]{32}$');
 
-  /// It Contains Multibyte Character Sets Format Correctly.
+  /// Validates Multibyte Format Correctly.
+  ///
+  /// Ensures that the provided input is in Multibyte format.
   static RegExp? multibyteValidate = RegExp(r'[^\x00-\x7F]');
-
-// -----------------------------------------------------------------------------------------------------------------------------
-
 }

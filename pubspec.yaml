@@ -1,24 +1,25 @@
+#  Created By: Mahmoud El Shenawy (Dev.M.ElShenawy@Icloud.com)
 name: auto_validate
-description: Auto Validate Package. This package will help you to auto validate used regular expressions.
-version: 2.0.0-nullsafety.0
+description: The Auto Validate package streamlines input validation by leveraging customizable regular expressions, allowing for efficient verification of various data formats.
+version: 3.0.3
 homepage: https://github.com/Mahmoud-ElShenawy/auto_validate
 repository: https://github.com/Mahmoud-ElShenawy/auto_validate
 issue_tracker: https://github.com/Mahmoud-ElShenawy/auto_validate/issues
 
-#  Created By Mahmoud El Shenawy (Dev.Mahmoud.ElShenawy@Gmail.com)
-
-
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  freezed_annotation: ^1.1.0
+
+  collection: ^1.15.0
+  freezed_annotation: ^2.4.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  test:
-  freezed:
-  build_runner:
+  test: ^1.21.0
+  freezed: ^2.5.7
+  build_runner: ^2.3.3
+

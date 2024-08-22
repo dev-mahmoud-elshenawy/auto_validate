@@ -1,694 +1,222 @@
 import 'package:auto_validate/auto_validate.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart' show FormFieldValidator;
 
-/// Created By Mahmoud El Shenawy (Dev.Mahmoud.ElShenawy@Gmail.com)
-
+/// Created By Mahmoud El Shenawy (Dev.M.ElShenawy@Icloud.com)
+///
+///
+/// A class that provides various form field validators for use in Flutter applications.
+///
+/// This class allows developers to easily validate user input in forms by providing
+/// a set of pre-defined validators such as required fields, length checks, pattern matching,
+/// and more. Each validator returns a nullable error message string, which can be displayed
+/// to the user if validation fails.
 class FormValidator {
-  ///Non-Null Required Field Validator
-  static FormFieldValidator<String?> required({String? errorMessage}) {
+  /// A base validator function that returns a nullable string for error messages.
+  ///
+  /// This function takes a validation logic as a parameter and an error message
+  /// that is displayed when validation fails. It ensures that the input value is
+  /// processed appropriately to determine if it meets the specified validation criteria.
+  static FormFieldValidator<String?> _baseValidator(
+      bool Function(String value) validate, {
+        required String errorMessage,
+      }) =>
+          (value) {
+        value ??= ''; // Ensure the value is not null.
+        return validate(value) ? null : errorMessage; // Return null if valid, else return the error message.
+      };
+
+  /// Validator for non-null required fields.
+  ///
+  /// Returns a validator that checks if the input is not empty.
+  ///
+  /// Example:
+  /// ```dart
+  /// TextFormField(
+  ///   validator: FormValidator.required(),
+  /// )
+  /// ```
+  static FormFieldValidator<String?> required({
+    String? errorMessage,
+  }) =>
+      _baseValidator(
+            (value) => value.isNotEmpty, // Check for non-empty input.
+        errorMessage: errorMessage ?? 'This field is required.', // Default error message.
+      );
+
+  /// Validator for minimum length of input.
+  ///
+  /// Returns a validator that checks if the input length is greater than or equal
+  /// to the specified minimum length.
+  ///
+  /// Example:
+  /// ```dart
+  /// TextFormField(
+  ///   validator: FormValidator.minLength(minLength: 6),
+  /// )
+  /// ```
+  static FormFieldValidator<String?> minLength({
+    required int minLength,
+    String? errorMessage,
+  }) =>
+      _baseValidator(
+            (value) => value.length >= minLength, // Validate based on length.
+        errorMessage: errorMessage ?? 'Input must be at least $minLength characters long.', // Customizable error message.
+      );
+
+  /// Validator for maximum length of input.
+  ///
+  /// Returns a validator that checks if the input length is less than or equal
+  /// to the specified maximum length.
+  ///
+  /// Example:
+  /// ```dart
+  /// TextFormField(
+  ///   validator: FormValidator.maxLength(maxLength: 20),
+  /// )
+  /// ```
+  static FormFieldValidator<String?> maxLength({
+    required int maxLength,
+    String? errorMessage,
+  }) =>
+      _baseValidator(
+            (value) => value.length <= maxLength, // Validate based on length.
+        errorMessage: errorMessage ?? 'Input must not exceed $maxLength characters.', // Customizable error message.
+      );
+
+  /// Validator based on a regular expression pattern.
+  ///
+  /// Returns a validator that checks if the input matches the specified pattern.
+  ///
+  /// Example:
+  /// ```dart
+  /// TextFormField(
+  ///   validator: FormValidator.pattern(pattern: r'^[a-zA-Z]+$'),
+  /// )
+  /// ```
+  static FormFieldValidator<String?> pattern({
+    required String pattern,
+    String? errorMessage,
+  }) =>
+      _baseValidator(
+            (value) => RegExp(pattern).hasMatch(value), // Check regex match.
+        errorMessage: errorMessage ?? 'Invalid input.', // Default error message.
+      );
+
+  /// Validator for validating email addresses.
+  ///
+  /// Returns a validator that uses the AutoValidate class to check if the input is a valid email.
+  ///
+  /// Example:
+  /// ```dart
+  /// TextFormField(
+  ///   validator: FormValidator.email(),
+  /// )
+  /// ```
+  static FormFieldValidator<String?> email({
+    String? errorMessage,
+  }) =>
+      _baseValidator(
+            (value) => AutoValidate.email(value), // Check for valid email.
+        errorMessage: errorMessage ?? 'Invalid email address.', // Default error message.
+      );
+
+  /// Validator for validating passwords.
+  ///
+  /// Returns a validator that checks if the input meets the password criteria defined in the AutoValidate class.
+  ///
+  /// Example:
+  /// ```dart
+  /// TextFormField(
+  ///   validator: FormValidator.password(),
+  /// )
+  /// ```
+  static FormFieldValidator<String?> password({
+    String? errorMessage,
+  }) =>
+      _baseValidator(
+            (value) => AutoValidate.password(value), // Check for valid password.
+        errorMessage: errorMessage ?? 'Invalid password format.', // Default error message.
+      );
+
+  /// Validator for checking password strength.
+  ///
+  /// Returns a validator that verifies if the password is strong enough according to the AutoValidate class.
+  ///
+  /// Example:
+  /// ```dart
+  /// TextFormField(
+  ///   validator: FormValidator.passwordStrong(),
+  /// )
+  /// ```
+  static FormFieldValidator<String?> passwordStrong({
+    String? errorMessage,
+  }) =>
+      _baseValidator(
+            (value) => AutoValidate.passwordStrong(value), // Check for strong password.
+        errorMessage: errorMessage ?? 'Password is not strong enough.', // Default error message.
+      );
+
+  /// Validator for validating phone numbers.
+  ///
+  /// Returns a validator that checks if the input is a valid phone number using the AutoValidate class.
+  ///
+  /// Example:
+  /// ```dart
+  /// TextFormField(
+  ///   validator: FormValidator.phone(),
+  /// )
+  /// ```
+  static FormFieldValidator<String?> phone({
+    String? errorMessage,
+  }) =>
+      _baseValidator(
+            (value) => AutoValidate.phone(value), // Check for valid phone number.
+        errorMessage: errorMessage ?? 'Invalid phone number.', // Default error message.
+      );
+
+  /// Validator for validating international phone numbers.
+  ///
+  /// Returns a validator that checks if the input is a valid international phone number using the AutoValidate class.
+  ///
+  /// Example:
+  /// ```dart
+  /// TextFormField(
+  ///   validator: FormValidator.phoneInternational(),
+  /// )
+  /// ```
+  static FormFieldValidator<String?> phoneInternational({
+    String? errorMessage,
+  }) =>
+      _baseValidator(
+            (value) => AutoValidate.phoneInternational(value), // Check for valid international phone number.
+        errorMessage: errorMessage ?? 'Invalid international phone number.', // Default error message.
+      );
+
+  /// Combined Validator
+  ///
+  /// Returns a validator that checks multiple validators in sequence.
+  ///
+  /// If any validator fails, the corresponding error message is returned.
+  ///
+  /// Example:
+  /// ```dart
+  /// TextFormField(
+  ///   validator: FormValidator.combination(validators: [
+  ///     FormValidator.required(),
+  ///     FormValidator.minLength(minLength: 6),
+  ///   ]),
+  /// )
+  /// ```
+  static FormFieldValidator<String?> combination({
+    required List<FormFieldValidator<String?>> validators,
+  }) {
     return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return errorMessage;
-      else
-        return null;
-    };
-  }
-
-  /// MinLength Validator
-  static FormFieldValidator<String?> minLength(
-      {int? minLength, String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty) return null;
-
-      if (value.length < minLength!)
-        return errorMessage;
-      else
-        return null;
-    };
-  }
-
-  /// MaxLength Validator
-  static FormFieldValidator<String?> maxLength(
-      {int? maxLength, String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty) return null;
-
-      if (value.length > maxLength!)
-        return errorMessage;
-      else
-        return null;
-    };
-  }
-
-  /// Email Validator
-  static FormFieldValidator<String?> email({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.email(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Password Validator
-  static FormFieldValidator<String?> password({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.password(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Password Strong Validator
-  static FormFieldValidator<String?> passwordStrong({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.passwordStrong(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Phone Validator
-  static FormFieldValidator<String> phone({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.phone(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Phone International Validator
-  static FormFieldValidator<String?> phoneInternational(
-      {String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.phoneInternational(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// UserName Validator
-  static FormFieldValidator<String?> userName({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.userName(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Passport Validator
-  static FormFieldValidator<String?> passport({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.passport(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Date (YYYYMMDD) Validator
-  static FormFieldValidator<String?> dateYYYYMMDD({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.dateYYYYMMDD(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Date (YYYYMMDD) Validator
-  static FormFieldValidator<String?> dateMMDDYYYY({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.dateMMDDYYYY(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Alphanumeric Validator
-  static FormFieldValidator<String?> alphanumeric({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.alphanumeric(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Alphanumeric With Spaces Validator
-  static FormFieldValidator<String?> alphanumericWithSpaces(
-      {String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.alphanumericWithSpaces(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Alphabet With Spaces Validator
-  static FormFieldValidator<String?> alphabet({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.alphabet(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Alphabet With Spaces Validator
-  static FormFieldValidator<String?> url({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.url(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Input Arabic Validator
-  static FormFieldValidator<String?> inputArabic({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.inputArabic(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Credit Card Validator
-  static FormFieldValidator<String?> creditCard({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.creditCard(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// SSN Validator
-  static FormFieldValidator<String?> ssn({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.ssn(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// IPV4 Validator
-  static FormFieldValidator<String?> ipv4({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.ipv4(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// IPV6 Validator
-  static FormFieldValidator<String?> ipv6({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.ipv6(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// LowerCase Validator
-  static FormFieldValidator<String?> lowerCase({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.lowerCase(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// UpperCase Validator
-  static FormFieldValidator<String?> upperCase({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.upperCase(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Digits Validator
-  static FormFieldValidator<String?> digits({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.digits(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Decimals Validator
-  static FormFieldValidator<String?> decimals({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.decimals(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Signed Decimals Validator
-  static FormFieldValidator<String?> decimalsSigned({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.decimalsSigned(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Base64 Validator
-  static FormFieldValidator<String?> base64({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.base64(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Base32 Validator
-  static FormFieldValidator<String?> base32({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.base32(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Base58 Validator
-  static FormFieldValidator<String?> base58({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.base58(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// ASCII Validator
-  static FormFieldValidator<String?> ascii({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.ascii(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Capitalized Validator
-  static FormFieldValidator<String?> capitalized({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.capitalized(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// JWT Validator
-  static FormFieldValidator<String?> jwt({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.jwt(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// ISIN Validator
-  static FormFieldValidator<String?> isin({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.isin(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Mac Address Validator (Without Colons)
-  static FormFieldValidator<String?> macAddress({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.macAddress(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Latitude and Longitude Validator
-  static FormFieldValidator<String?> latLng({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.latLng(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  ///  MD5 Hash Validator
-  static FormFieldValidator<String?> md5({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.md5(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  ///  Magnet URI Validator
-  static FormFieldValidator<String?> magnetURI({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.magnetURI(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  ///  Mongo ID Validator
-  static FormFieldValidator<String?> mongoID({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.mongoID(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  ///  Multibyte Validator
-  static FormFieldValidator<String?> multibyte({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.multibyte(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  ///  BIC Validator
-  static FormFieldValidator<String?> bic({String? errorMessage}) {
-    return (value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value.isEmpty)
-        return null;
-      else {
-        if (AutoValidate.bic(value)!)
-          return null;
-        else
-          return errorMessage;
-      }
-    };
-  }
-
-  /// Combination From More Than One Form Validator
-  static FormFieldValidator<String?> combination(
-      {List<FormFieldValidator<String?>>? validators}) {
-    return (value) {
-      for (final validator in validators!) {
-        final result = validator(value);
-        if (result != null) return result;
-      }
-      return null;
+      for (final validator in validators) {
+        final result = validator(value); // Validate each field.
+        if (result != null) return result; // Return the first error message found.
+      }
+      return null; // Return null if all validators pass.
     };
   }
 }

@@ -1,41 +1,61 @@
-## 2.0.0-nullsafety.0
+# 3.0.3
+- **Documentation Enhancements**: Edited and refined the documentation.
 
-- **Migrated to Null Safety**
-- Upgrade Dart SDK constraints to >=2.12.0 <3.0.0
+# 3.0.2
+- **Minor Changes**: No significant changes.
 
-## 1.0.8
+# 3.0.1
+- **Example Code Updates**: Revised example implementations across the documentation to reflect the latest changes in functionality, ensuring they accurately demonstrate the new features and best practices for using the package effectively. Adjustments include clarifying method usage and providing more context for validation scenarios.
+- **Documentation Consistency**: Ensured that all examples maintain consistent formatting and adhere to the latest standards for readability and usability.
 
-- No Big Changes Happened
+# 3.0.0
 
-## 1.0.7
+- **Upgraded Dart SDK**: Updated SDK constraints to `>=3.0.0 <4.0.0`.
+- **Enhanced FormValidator**: Improved the functionality and performance of the `FormValidator` class, making it more reusable and flexible for different use cases.
+- **Improved AutoValidators**: Refined existing AutoValidators for better accuracy and added new validation options to expand functionality.
+- **Documentation Overhaul**: Enhanced documentation with detailed explanations, usage examples, and best practices to improve user understanding and ease of implementation.
+- **Example Code Updates**: Revised example implementations to demonstrate new features and best practices for using the package effectively.
+- **Comprehensive Unit Tests**: Implemented extensive unit tests to ensure all functionalities of the package are thoroughly covered, improving reliability and maintainability.
+- **Provided StringValidationExtension**: Added a new `StringValidationExtension` to simplify and enhance string validation throughout the package.
+- **Enhanced README**: Improved the README file for better clarity and usability, making it easier for users to understand and implement the package.
 
-- Edit Documentation
+# 2.0.0-nullsafety.0
 
-## 1.0.6
+- **Migrated to Null Safety**: Fully migrated the package to support null safety.
+- **Updated Dart SDK Constraints**: Changed to `>=2.12.0 <3.0.0`.
 
-- Add More FormValidators
+# 1.0.8
 
-## 1.0.5
+- **Minor Changes**: No significant changes.
 
-- Edit Documentation
+# 1.0.7
 
-## 1.0.4
+- **Documentation Updates**: Edited and improved the documentation.
 
-- No Big Changes Happened
+# 1.0.6
 
-## 1.0.3
+- **Expanded Validators**: Added more FormValidators for enhanced validation capabilities.
 
-- Edit Documentation
+# 1.0.5
 
-## 1.0.2
+- **Documentation Enhancements**: Edited and refined the documentation.
 
-- Add More Auto Validators
-- Add Form Validators
+# 1.0.4
 
-## 1.0.1
+- **Minor Changes**: No significant changes.
 
-- No Big Changes Happened
+# 1.0.3
 
-## 1.0.0
+- **Documentation Updates**: Edited documentation for clarity.
 
-- Initial Version Contains Validations Used Regular Expressions
+# 1.0.2
+
+- **Added Validators**: Introduced additional Auto Validators and Form Validators.
+
+# 1.0.1
+
+- **Minor Changes**: No significant changes.
+
+# 1.0.0
+
+- **Initial Release**: Released initial version with validations based on regular expressions.

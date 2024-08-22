@@ -6,10 +6,11 @@
 import 'package:auto_validate/auto_validate.dart';
 import 'package:flutter/material.dart';
 
-/// Created By Mahmoud El Shenawy (Dev.Mahmoud.ElShenawy@Gmail.com)
+/// Created By Mahmoud El Shenawy (Dev.M.ElShenawy@Icloud.com)
 
 void main() => runApp(AutoValidateApp());
 
+/// Main widget for the Auto Validate application.
 class AutoValidateApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -30,10 +31,13 @@ class AutoValidateApp extends StatelessWidget {
   }
 }
 
+/// Home screen widget for displaying form validation.
 class AutoValidateHome extends StatelessWidget {
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController passwordStrongController = TextEditingController();
+  // Controllers for the form fields.
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController strongPasswordController =
+  TextEditingController();
   final TextEditingController phoneController = TextEditingController();
 
   @override
@@ -41,115 +45,74 @@ class AutoValidateHome extends StatelessWidget {
     return Stack(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 15.0,
-            horizontal: 12.5,
-          ),
+          padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 12.5),
           child: Column(
             children: [
-              Flexible(flex: 5, child: FlutterLogo(size: 200)),
+              Flexible(
+                flex: 5,
+                child: FlutterLogo(size: 200),
+              ),
               Flexible(
                 flex: 7,
-                child: new Column(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                      child: TextFormField(
-                        controller: emailController,
-                        decoration: InputDecoration(
-                          hintText: "Email",
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(),
-                          ),
-                        ),
-                        validator: FormValidator.email(
-                          errorMessage: 'Please Enter Valid Email',
-                        ),
+                    _buildTextField(
+                      controller: emailController,
+                      hintText: "Email",
+                      validator: FormValidator.email(
+                        errorMessage: 'Please Enter Valid Email',
                       ),
                     ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                      child: TextFormField(
-                        controller: passwordController,
-                        decoration: InputDecoration(
-                          hintText: "Password",
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(),
-                          ),
-                        ),
-                        validator: FormValidator.password(
-                          errorMessage: 'Please Enter Valid Password',
-                        ),
+                    _buildTextField(
+                      controller: passwordController,
+                      hintText: "Password",
+                      validator: FormValidator.password(
+                        errorMessage: 'Please Enter Valid Password',
                       ),
                     ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                      child: TextFormField(
-                        controller: passwordStrongController,
-                        decoration: InputDecoration(
-                          hintText: "Password",
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(),
-                          ),
-                        ),
-                        validator: FormValidator.minLength(
-                            errorMessage:
-                                'Please Enter Valid Password At Least 5 Length',
-                            minLength: 5),
+                    _buildTextField(
+                      controller: strongPasswordController,
+                      hintText: "Strong Password",
+                      validator: FormValidator.passwordStrong(
+                        errorMessage: 'Please Enter Valid Strong Password',
                       ),
                     ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                      child: TextFormField(
-                        controller: passwordStrongController,
-                        decoration: InputDecoration(
-                          hintText: "Phone",
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(),
-                          ),
-                        ),
-                        validator: FormValidator.phone(
-                          errorMessage: 'Please Enter Valid Phone',
-                        ),
+                    _buildTextField(
+                      controller: phoneController,
+                      hintText: "Phone",
+                      validator: FormValidator.phone(
+                        errorMessage: 'Please Enter Valid Phone',
                       ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                      child: TextFormField(
-                        controller: passwordStrongController,
-                        decoration: InputDecoration(
-                          hintText: "Strong Password",
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(),
-                          ),
-                        ),
-                        validator: FormValidator.passwordStrong(
-                            errorMessage: 'Please Enter Valid Strong Password'),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5,
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
       ],
+    );
+  }
+
+  /// Builds a text field with validation.
+  Widget _buildTextField({
+    required TextEditingController controller,
+    required String hintText,
+    required String? Function(String?)? validator,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 2.0),
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          hintText: hintText,
+          border: OutlineInputBorder(
+            borderSide: BorderSide(),
+          ),
+        ),
+        validator: validator,
+      ),
     );
   }
 }
@@ -160,7 +123,7 @@ class AutoValidateHome extends StatelessWidget {
 ```dart
 import 'package:auto_validate/auto_validate.dart';
 
-/// Created By Mahmoud El Shenawy (Dev.Mahmoud.ElShenawy@Gmail.com)
+/// Created By Mahmoud El Shenawy (Dev.M.ElShenawy@Icloud.com)
 
 class AutoValidateExample {
   validation() {
@@ -169,6 +132,7 @@ class AutoValidateExample {
     var password = '@MahmoudElShenawy2021';
     var phone = '+201098415860';
 
+      // You can validate the input using the AutoValidate class
     AutoValidate.email(email.toString())
         ? print('Email is Valid')
         : print('Email is Invalid');
@@ -182,6 +146,23 @@ class AutoValidateExample {
         : print('Password is Invalid');
 
     AutoValidate.phone(phone.toString())
+        ? print('Phone is Valid')
+        : print('Phone is Invalid');
+
+    // You can also use the extension methods to validate the input
+    email.isValidEmail
+        ? print('Email is Valid')
+        : print('Email is Invalid');
+
+    name.isValidUsername
+        ? print('User Name is Valid')
+        : print('User Name is Invalid');
+
+    password.isValidPassword
+        ? print('Password is Valid')
+        : print('Password is Invalid');
+
+    phone.isValidPhone
         ? print('Phone is Valid')
         : print('Phone is Invalid');
   }

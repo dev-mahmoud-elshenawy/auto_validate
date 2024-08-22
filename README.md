@@ -1,6 +1,6 @@
 # Auto Validate
 
-Auto Validate Package is unique and easy to use.
+The Auto Validate Package is a unique and easy-to-use solution for automatic validation of various data types using regular expressions.
 
 [![Pub Package](https://img.shields.io/badge/Pub%20get-Auto%20Validate-yellow)](https://pub.dev/packages/auto_validate)
 ![Build Status](https://img.shields.io/badge/Build-Passing-teal)
@@ -10,37 +10,67 @@ Auto Validate Package is unique and easy to use.
 
 ## Importance
 
-This package will help you to auto validate used regular expressions. No need to write the code by yourself, simply you can use this package for not waste time and it will help you a lot.
+This package streamlines the validation process, allowing you to easily implement validation without needing to write the code yourself. By using this package, you can save valuable time and ensure that your input data meets the required criteria.
 
 ## Usage
 
-A simple usage of Auto Validate example:
+Here's a simple example of how to use the Auto Validate package:
+
+# String Validation Extension [New Feature]
+
+This package provides an extension on `String?` that offers convenient methods for validating various input formats using the `AutoValidate` class. It allows for a more readable and fluent validation process in your Dart applications.
+
+## Features
+
+- Validate usernames, passwords, email addresses, phone numbers, credit card numbers, and more.
+- Check for valid formats like ISBN, MAC addresses, hexadecimal codes, and JSON Web Tokens (JWT).
+- Simplify validation checks by using fluent methods directly on `String?` instances.
+- Improve code readability and maintainability by using the extension methods for validation.
 
 ```dart
 import 'package:auto_validate/auto_validate.dart';
 
-  validation() {
-    var email = 'Dev.Mahmoud.ElShenawy@gmail.com';
-    var name = 'Mahmoud El Shenawy';
+  void validation() {
+    var email = 'Dev.M.ElShenawy@Icloud.com';
+    var name = 'Mahmud El Shenawy';
     var password = '@MahmoudElShenawy2021';
     var phone = '+201098415860';
-
+  
+    // You can validate the input using the AutoValidate class
     AutoValidate.email(email.toString())
-        ? print('Email is Valid')
-        : print('Email is Invalid');
-
+            ? print('Email is Valid')
+            : print('Email is Invalid');
+  
     AutoValidate.userName(name.toString())
-        ? print('User Name is Valid')
-        : print('User Name is Invalid');
-
+            ? print('User Name is Valid')
+            : print('User Name is Invalid');
+  
     AutoValidate.password(password.toString())
-        ? print('Password is Valid')
-        : print('Password is Invalid');
-
+            ? print('Password is Valid')
+            : print('Password is Invalid');
+  
     AutoValidate.phone(phone.toString())
-        ? print('Phone is Valid')
-        : print('Phone is Invalid');
+            ? print('Phone is Valid')
+            : print('Phone is Invalid');
+  
+    // You can also use the extension methods to validate the input
+    email.isValidEmail
+            ? print('Email is Valid')
+            : print('Email is Invalid');
+  
+    name.isValidUsername
+            ? print('User Name is Valid')
+            : print('User Name is Invalid');
+  
+    password.isValidPassword
+            ? print('Password is Valid')
+            : print('Password is Invalid');
+  
+    phone.isValidPhone
+            ? print('Phone is Valid')
+            : print('Phone is Invalid');
   }
+
 ```
 
 A simple usage of Form Validator Example:
@@ -185,6 +215,17 @@ import 'package:auto_validate/auto_validate.dart';
 ```
 
 
+## Report Issues
+
+If you encounter any issues, bugs, or have suggestions for improvements, please report them on the [GitHub Issues page](https://github.com/Mahmoud-ElShenawy/auto_validate/issues).
+
+When reporting an issue, please provide the following information:
+- A clear description of the problem or feature request.
+- Steps to reproduce the issue (if applicable).
+- The version of the Auto Validate package you are using.
+- Any relevant code snippets or screenshots.
+
+Your feedback is invaluable for improving the package and helping others in the community!
 
 ## Created By
 
