@@ -1,10 +1,10 @@
 #  Created By: Mahmoud El Shenawy (Dev.M.ElShenawy@Icloud.com)
 name: auto_validate
 description: The Auto Validate package streamlines input validation by leveraging customizable regular expressions, allowing for efficient verification of various data formats.
-version: 3.0.4
-homepage: https://github.com/Mahmoud-ElShenawy/auto_validate
-repository: https://github.com/Mahmoud-ElShenawy/auto_validate
-issue_tracker: https://github.com/Mahmoud-ElShenawy/auto_validate/issues
+version: 3.0.5
+homepage: https://github.com/dev-mahmoud-elshenawy/auto_validate
+repository: https://github.com/dev-mahmoud-elshenawy/auto_validate
+issue_tracker: https://github.com/dev-mahmoud-elshenawy/auto_validate/issues
 license: MIT
 
 environment:

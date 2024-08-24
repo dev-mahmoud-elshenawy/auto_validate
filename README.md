@@ -217,7 +217,7 @@ import 'package:auto_validate/auto_validate.dart';
 
 ## Report Issues
 
-If you encounter any issues, bugs, or have suggestions for improvements, please report them on the [GitHub Issues page](https://github.com/Mahmoud-ElShenawy/auto_validate/issues).
+If you encounter any issues, bugs, or have suggestions for improvements, please report them on the [GitHub Issues page](https://github.com/dev-mahmoud-elshenawy/auto_validate/issues).
 
 When reporting an issue, please provide the following information:
 - A clear description of the problem or feature request.
@@ -231,4 +231,4 @@ Your feedback is invaluable for improving the package and helping others in the 
 
 - **Mahmoud El Shenawy** - [Mahmoud-ElShenawy](https://www.linkedin.com/in/dev-mahmoud-elshenawy)
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/Mahmoud-ElShenawy/auto_validate/blob/master/LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/dev-mahmoud-elshenawy/auto_validate/blob/master/LICENSE) file for details
