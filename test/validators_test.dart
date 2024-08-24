@@ -103,7 +103,8 @@ void main() {
 
     test('Invalid passport numbers', () {
       expect(AutoValidators.passportValidate!.hasMatch('A123456789'), isTrue);
-      expect(AutoValidators.passportValidate!.hasMatch('A12345678901234567890'), isFalse);
+      expect(AutoValidators.passportValidate!.hasMatch('A12345678901234567890'),
+          isFalse);
     });
 
     test('Valid ISBN-13', () {

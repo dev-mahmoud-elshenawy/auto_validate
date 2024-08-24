@@ -18,12 +18,14 @@ class FormValidator {
   /// that is displayed when validation fails. It ensures that the input value is
   /// processed appropriately to determine if it meets the specified validation criteria.
   static FormFieldValidator<String?> _baseValidator(
-      bool Function(String value) validate, {
-        required String errorMessage,
-      }) =>
-          (value) {
+    bool Function(String value) validate, {
+    required String errorMessage,
+  }) =>
+      (value) {
         value ??= ''; // Ensure the value is not null.
-        return validate(value) ? null : errorMessage; // Return null if valid, else return the error message.
+        return validate(value)
+            ? null
+            : errorMessage; // Return null if valid, else return the error message.
       };
 
   /// Validator for non-null required fields.
@@ -40,8 +42,9 @@ class FormValidator {
     String? errorMessage,
   }) =>
       _baseValidator(
-            (value) => value.isNotEmpty, // Check for non-empty input.
-        errorMessage: errorMessage ?? 'This field is required.', // Default error message.
+        (value) => value.isNotEmpty, // Check for non-empty input.
+        errorMessage:
+            errorMessage ?? 'This field is required.', // Default error message.
       );
 
   /// Validator for minimum length of input.
@@ -60,8 +63,9 @@ class FormValidator {
     String? errorMessage,
   }) =>
       _baseValidator(
-            (value) => value.length >= minLength, // Validate based on length.
-        errorMessage: errorMessage ?? 'Input must be at least $minLength characters long.', // Customizable error message.
+        (value) => value.length >= minLength, // Validate based on length.
+        errorMessage: errorMessage ??
+            'Input must be at least $minLength characters long.', // Customizable error message.
       );
 
   /// Validator for maximum length of input.
@@ -80,8 +84,9 @@ class FormValidator {
     String? errorMessage,
   }) =>
       _baseValidator(
-            (value) => value.length <= maxLength, // Validate based on length.
-        errorMessage: errorMessage ?? 'Input must not exceed $maxLength characters.', // Customizable error message.
+        (value) => value.length <= maxLength, // Validate based on length.
+        errorMessage: errorMessage ??
+            'Input must not exceed $maxLength characters.', // Customizable error message.
       );
 
   /// Validator based on a regular expression pattern.
@@ -99,8 +104,9 @@ class FormValidator {
     String? errorMessage,
   }) =>
       _baseValidator(
-            (value) => RegExp(pattern).hasMatch(value), // Check regex match.
-        errorMessage: errorMessage ?? 'Invalid input.', // Default error message.
+        (value) => RegExp(pattern).hasMatch(value), // Check regex match.
+        errorMessage:
+            errorMessage ?? 'Invalid input.', // Default error message.
       );
 
   /// Validator for validating email addresses.
@@ -117,8 +123,9 @@ class FormValidator {
     String? errorMessage,
   }) =>
       _baseValidator(
-            (value) => AutoValidate.email(value), // Check for valid email.
-        errorMessage: errorMessage ?? 'Invalid email address.', // Default error message.
+        (value) => AutoValidate.email(value), // Check for valid email.
+        errorMessage:
+            errorMessage ?? 'Invalid email address.', // Default error message.
       );
 
   /// Validator for validating passwords.
@@ -135,8 +142,10 @@ class FormValidator {
     String? errorMessage,
   }) =>
       _baseValidator(
-            (value) => AutoValidate.password(value), // Check for valid password.
-        errorMessage: errorMessage ?? 'Invalid password format.', // Default error message.
+        (value) => AutoValidate.password(value),
+        // Check for valid password.
+        errorMessage: errorMessage ??
+            'Invalid password format.', // Default error message.
       );
 
   /// Validator for checking password strength.
@@ -153,8 +162,10 @@ class FormValidator {
     String? errorMessage,
   }) =>
       _baseValidator(
-            (value) => AutoValidate.passwordStrong(value), // Check for strong password.
-        errorMessage: errorMessage ?? 'Password is not strong enough.', // Default error message.
+        (value) =>
+            AutoValidate.passwordStrong(value), // Check for strong password.
+        errorMessage: errorMessage ??
+            'Password is not strong enough.', // Default error message.
       );
 
   /// Validator for validating phone numbers.
@@ -171,8 +182,10 @@ class FormValidator {
     String? errorMessage,
   }) =>
       _baseValidator(
-            (value) => AutoValidate.phone(value), // Check for valid phone number.
-        errorMessage: errorMessage ?? 'Invalid phone number.', // Default error message.
+        (value) => AutoValidate.phone(value),
+        // Check for valid phone number.
+        errorMessage:
+            errorMessage ?? 'Invalid phone number.', // Default error message.
       );
 
   /// Validator for validating international phone numbers.
@@ -189,8 +202,10 @@ class FormValidator {
     String? errorMessage,
   }) =>
       _baseValidator(
-            (value) => AutoValidate.phoneInternational(value), // Check for valid international phone number.
-        errorMessage: errorMessage ?? 'Invalid international phone number.', // Default error message.
+        (value) => AutoValidate.phoneInternational(
+            value), // Check for valid international phone number.
+        errorMessage: errorMessage ??
+            'Invalid international phone number.', // Default error message.
       );
 
   /// Combined Validator
@@ -213,10 +228,10 @@ class FormValidator {
   }) {
     return (value) {
       for (final validator in validators) {
-        final result = validator(value); // Validate each field.
-        if (result != null) return result; // Return the first error message found.
+        final result = validator(value);
+        if (result != null) return result;
       }
-      return null; // Return null if all validators pass.
+      return null;
     };
   }
 }

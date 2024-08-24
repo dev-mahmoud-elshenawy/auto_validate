@@ -27,9 +27,7 @@ class AutoValidateExample {
         : print('Phone is Invalid');
 
     // You can also use the extension methods to validate the input
-    email.isValidEmail
-        ? print('Email is Valid')
-        : print('Email is Invalid');
+    email.isValidEmail ? print('Email is Valid') : print('Email is Invalid');
 
     name.isValidUsername
         ? print('User Name is Valid')
@@ -39,8 +37,6 @@ class AutoValidateExample {
         ? print('Password is Valid')
         : print('Password is Invalid');
 
-    phone.isValidPhone
-        ? print('Phone is Valid')
-        : print('Phone is Invalid');
+    phone.isValidPhone ? print('Phone is Valid') : print('Phone is Invalid');
   }
 }

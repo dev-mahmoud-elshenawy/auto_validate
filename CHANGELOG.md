@@ -1,3 +1,7 @@
+# 3.0.4
+- **Dart Format Enhancements**: Applied improved Dart formatting for better code readability and consistency across the package.
+- **License Update**: Updated the package to use an OSI-approved license, ensuring compliance with pub.dev requirements.
+
 # 3.0.3
 - **Documentation Enhancements**: Edited and refined the documentation.
 
