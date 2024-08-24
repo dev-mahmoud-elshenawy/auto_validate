@@ -1,3 +1,6 @@
+# 3.0.6
+- **Updated License**: Edited the MIT License to ensure compliance with OSI-approved licensing requirements, allowing for broader usage and distribution of the package.
+
 # 3.0.5
 - **Fixed Links in README**: Corrected some links in the README for better navigation and clarity.
 
