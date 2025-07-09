@@ -1,3 +1,6 @@
+# 3.0.8
+- **Dart Format Enhancements**: Applied improved Dart formatting for better code readability and consistency across the package.
+
 # 3.0.7
 - **Added Example Docs**: Introduced a complete missing examples.  
 - **SDK & Dependency Bump**: Raised the minimum Dart SDK to `^3.4.0` and updated all transitive dependencies to their latest stable versions for improved performance and security.  
