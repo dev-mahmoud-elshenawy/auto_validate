@@ -2,9 +2,6 @@ import 'package:auto_validate/auto_validate.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart' show FormFieldValidator;
 
-/// Created By Mahmoud El Shenawy (Dev.M.ElShenawy@Icloud.com)
-///
-///
 /// A class that provides various form field validators for use in Flutter applications.
 ///
 /// This class allows developers to easily validate user input in forms by providing
@@ -17,6 +14,12 @@ class FormValidator {
   /// This function takes a validation logic as a parameter and an error message
   /// that is displayed when validation fails. It ensures that the input value is
   /// processed appropriately to determine if it meets the specified validation criteria.
+  /// Example:
+  /// ```dart
+  /// TextFormField(
+  ///   validator: FormValidator.required(),
+  ///  )
+  /// ```
   static FormFieldValidator<String?> _baseValidator(
     bool Function(String value) validate, {
     required String errorMessage,

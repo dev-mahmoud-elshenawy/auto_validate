@@ -1,3 +1,9 @@
+# 3.0.7
+- **Added Example Docs**: Introduced a complete missing examples.  
+- **SDK & Dependency Bump**: Raised the minimum Dart SDK to `^3.4.0` and updated all transitive dependencies to their latest stable versions for improved performance and security.  
+- **Dependency Cleanup**: Dropped unused dev-packages `test`, `freezed`, `build_runner`, and `freezed_annotation`, shrinking the install size and CI times.  
+- **Codebase Un-Freezed**: Refactored the few data classes that relied on Freezed into plain, hand-written models—faster compile times, zero code-gen, zero surprises.
+
 # 3.0.6
 - **Updated License**: Edited the MIT License to ensure compliance with OSI-approved licensing requirements, allowing for broader usage and distribution of the package.
 

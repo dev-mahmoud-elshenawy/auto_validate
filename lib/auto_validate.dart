@@ -1,7 +1,5 @@
 library auto_validate;
 
-/// Created By Mahmoud El Shenawy (Dev.M.ElShenawy@Icloud.com)
-///
 /// Auto Validate is a package that contains a set of validators that can be used to validate user input in forms.
 export 'package:auto_validate/src/auto_validators.dart';
 

@@ -1,26 +1,20 @@
-#  Created By: Mahmoud El Shenawy (Dev.M.ElShenawy@Icloud.com)
 name: auto_validate
 description: The Auto Validate package streamlines input validation by leveraging customizable regular expressions, allowing for efficient verification of various data formats.
-version: 3.0.6
+version: 3.0.7
 homepage: https://github.com/dev-mahmoud-elshenawy/auto_validate
 repository: https://github.com/dev-mahmoud-elshenawy/auto_validate
 issue_tracker: https://github.com/dev-mahmoud-elshenawy/auto_validate/issues
 license: MIT
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: '>=3.3.4 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
 
-  collection: ^1.15.0
-  freezed_annotation: ^2.4.4
+  collection: ^1.19.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  test: ^1.21.0
-  freezed: ^2.5.7
-  build_runner: ^2.3.3
-

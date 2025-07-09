@@ -1,11 +1,6 @@
-// import 'auto_validators.dart';
-
 import 'auto_validators.dart';
 import 'package:collection/collection.dart';
 
-/// /// Created By Mahmoud El Shenawy (Dev.M.ElShenawy@Icloud.com)
-///
-///
 /// A comprehensive utility class for validating various input formats against predefined patterns.
 /// This class provides static methods for validating strings, ensuring they meet specific criteria
 /// defined by regular expressions in the `AutoValidators` class.
